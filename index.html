@@ -1,0 +1,1469 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anhema | Tu bodega, a un toque</title>
+<meta name="description" content="Anhema: catálogo de bodega, pago por Yape y pedido directo por WhatsApp.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23E8491D'/%3E%3Cstop offset='55%25' stop-color='%23D6217A'/%3E%3Cstop offset='100%25' stop-color='%236D1FC7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23g)'/%3E%3C/svg%3E">
+
+<meta property="og:title" content="Anhema | Tu bodega, a un toque">
+<meta property="og:description" content="Catálogo, pago por Yape y pedido directo por WhatsApp.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#FAF8F3;
+    --surface:#FFFFFF;
+    --ink:#1C1330;
+    --ink-soft:#6E6580;
+    --line:#ECE4D8;
+
+    --coral:#E8491D;
+    --coral-soft:#FFD9C7;
+    --magenta:#D6217A;
+    --magenta-soft:#FFD3E8;
+    --violet:#6D1FC7;
+    --violet-soft:#E7D9FB;
+    --mint:#0C8A70;
+    --mint-soft:#CFF6EA;
+    --citrine:#FFC93C;
+    --citrine-ink:#5A4300;
+    --grey-off:#9A93A6;
+
+    --yape:#6C1FE0;
+    --whatsapp:#1DA851;
+
+    --grad-hero:linear-gradient(120deg,var(--coral) 0%,var(--magenta) 55%,var(--violet) 100%);
+    --radius-lg:26px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --shadow-1:0 14px 30px -18px rgba(28,19,48,.35);
+    --shadow-2:0 24px 48px -20px rgba(28,19,48,.28);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.marca{ font-family:'Baloo 2',Arial,sans-serif; }
+
+  button,input{ font:inherit; color:inherit; }
+  button{ cursor:pointer; }
+  a{ color:inherit; }
+  img,svg{ max-width:100%; display:block; }
+
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  .saltar-enlace{
+    position:absolute; left:12px; top:-60px;
+    background:var(--ink); color:#fff; padding:10px 16px; border-radius:10px;
+    z-index:100; transition:top .2s;
+  }
+  .saltar-enlace:focus{ top:12px; }
+
+  :focus-visible{
+    outline:3px solid var(--violet);
+    outline-offset:2px;
+    border-radius:6px;
+  }
+
+  .contenedor{ width:min(1180px, calc(100% - 32px)); margin:auto; }
+
+  /* ---------- Barra superior de aviso ---------- */
+  .franja-aviso{
+    background:var(--ink);
+    color:#F1E9FF;
+    text-align:center;
+    padding:9px 12px;
+    font-size:13.5px;
+    font-weight:600;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(250,248,243,.88);
+    backdrop-filter:blur(10px) saturate(1.4);
+    border-bottom:1px solid var(--line);
+  }
+  .navegacion{
+    min-height:72px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+  }
+  .marca{
+    text-decoration:none;
+    font-size:26px; font-weight:700;
+    color:var(--ink);
+    display:flex; align-items:center; gap:8px;
+  }
+  .marca .punto{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--grad-hero);
+  }
+  .menu{ display:flex; gap:6px; }
+  .menu a{
+    text-decoration:none; color:var(--ink-soft);
+    font-weight:600; font-size:14.5px;
+    padding:9px 13px; border-radius:999px;
+  }
+  .menu a:hover{ color:var(--ink); background:var(--line); }
+
+  .boton-carrito{
+    position:relative;
+    border:0; border-radius:999px;
+    background:var(--ink); color:#fff;
+    padding:12px 20px 12px 18px;
+    font-weight:700; font-size:14.5px;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .contador{
+    display:inline-grid; place-items:center;
+    min-width:22px; height:22px; padding:0 5px;
+    border-radius:999px;
+    background:var(--citrine); color:var(--citrine-ink);
+    font-size:12px; font-weight:800;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:52px 0 30px; overflow:hidden; position:relative;
+    background-image:radial-gradient(circle, rgba(109,31,199,.14) 1.4px, transparent 1.4px);
+    background-size:26px 26px;
+    background-position:-6px -6px;
+  }
+  .chip-estado .led{ animation:pulso-led 2s ease-in-out infinite; }
+  @keyframes pulso-led{
+    0%,100%{ box-shadow:0 0 0 4px var(--mint-soft); }
+    50%{ box-shadow:0 0 0 8px transparent; }
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr;
+    align-items:center; gap:34px;
+  }
+  .chip-estado{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:999px; padding:8px 14px;
+    font-size:13px; font-weight:700; color:var(--ink-soft);
+  }
+  .chip-estado .led{
+    width:8px; height:8px; border-radius:50%;
+    background:var(--mint); box-shadow:0 0 0 4px var(--mint-soft);
+  }
+
+  h1{
+    margin:18px 0 14px;
+    font-weight:700;
+    font-size:clamp(38px,5.6vw,64px);
+    line-height:1.03;
+    letter-spacing:-1px;
+    max-width:620px;
+    background:var(--grad-hero);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p.parrafo{
+    max-width:480px; color:var(--ink-soft);
+    font-size:17px; line-height:1.6;
+  }
+
+  .botones{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+  .boton-principal,.boton-secundario{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:15px 22px; border-radius:14px;
+    text-decoration:none; font-weight:700; font-size:15px;
+    border:0;
+  }
+  .boton-principal{
+    background:var(--grad-hero); color:#fff;
+    box-shadow:var(--shadow-1);
+  }
+  .boton-secundario{
+    background:var(--surface); color:var(--ink);
+    border:1.5px solid var(--line);
+  }
+
+  .escena{
+    position:relative;
+    min-height:360px;
+    display:grid; place-items:center;
+  }
+  .burbuja{
+    position:absolute;
+    display:grid; place-items:center;
+    border-radius:50%;
+    font-size:38px;
+    box-shadow:var(--shadow-1);
+    animation:flotar 6s ease-in-out infinite;
+  }
+  .burbuja span{ transform:translateY(-2px); }
+  .b1{ width:132px; height:132px; left:6%; top:6%;  background:linear-gradient(160deg,#FFE1CE,#FFB199); font-size:56px; animation-delay:.2s;}
+  .b2{ width:96px;  height:96px;  right:10%; top:0%; background:linear-gradient(160deg,#D9F6EC,#8FE3CB); font-size:42px; animation-delay:1.1s;}
+  .b3{ width:150px; height:150px; left:20%; top:44%; background:linear-gradient(160deg,#F2E3FF,#D2AEFA); font-size:62px; animation-delay:.6s;}
+  .b4{ width:104px; height:104px; right:4%; top:48%; background:linear-gradient(160deg,#FFF0C2,#FFD666); font-size:44px; animation-delay:1.6s;}
+  .b5{ width:88px;  height:88px;  left:44%; top:78%; background:linear-gradient(160deg,#FFE0EC,#FFAECB); font-size:38px; animation-delay:.9s;}
+
+  @keyframes flotar{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-16px) rotate(3deg); }
+  }
+
+  /* ---------- Beneficios ---------- */
+  .beneficios{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+    margin:8px 0 46px;
+  }
+  .beneficio{
+    display:flex; align-items:center; gap:14px;
+    padding:18px; background:var(--surface);
+    border:1px solid var(--line); border-radius:var(--radius-md);
+  }
+  .beneficio-icono{
+    width:44px; height:44px; flex:none;
+    display:grid; place-items:center; border-radius:14px;
+    font-size:21px;
+  }
+  .beneficio:nth-child(1) .beneficio-icono{ background:var(--coral-soft); }
+  .beneficio:nth-child(2) .beneficio-icono{ background:var(--violet-soft); }
+  .beneficio:nth-child(3) .beneficio-icono{ background:var(--mint-soft); }
+  .beneficio strong{ display:block; font-size:15px; }
+  .beneficio small{ display:block; margin-top:2px; color:var(--ink-soft); font-size:13px; }
+
+  /* ---------- Secciones generales ---------- */
+  section{ padding:34px 0; }
+  .encabezado-seccion{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:16px; margin-bottom:18px; flex-wrap:wrap;
+  }
+  h2{ margin:0; font-size:26px; font-weight:700; }
+  .encabezado-seccion p{ margin:5px 0 0; color:var(--ink-soft); font-size:14.5px; }
+
+  /* ---------- Destacados (carrusel) ---------- */
+  .carrusel{
+    display:flex; gap:14px; overflow-x:auto; padding:4px 4px 16px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .carrusel::-webkit-scrollbar{ height:8px; }
+  .carrusel::-webkit-scrollbar-thumb{ background:var(--line); border-radius:999px; }
+
+  .tarjeta-destacado{
+    scroll-snap-align:start;
+    flex:0 0 auto; width:200px;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:var(--radius-md); padding:14px;
+  }
+  .imagen-destacado{
+    position:relative; overflow:hidden;
+    height:96px; border-radius:12px; display:grid; place-items:center;
+    font-size:44px; margin-bottom:10px;
+  }
+  .imagen-destacado img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover;
+  }
+  .tarjeta-destacado h3{ margin:0 0 3px; font-size:15px; }
+  .tarjeta-destacado small{ color:var(--ink-soft); font-size:12.5px; }
+  .fila-precio-mini{
+    display:flex; align-items:center; justify-content:space-between; margin-top:10px;
+  }
+  .precio-mini{ font-weight:800; font-size:15px; }
+
+  /* ---------- Buscador + categorías ---------- */
+  .barra-catalogo{
+    display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:18px;
+  }
+  .campo-buscador{
+    position:relative; flex:1; min-width:220px;
+  }
+  .campo-buscador svg{
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; color:var(--ink-soft);
+  }
+  .buscador{
+    width:100%; padding:13px 14px 13px 40px;
+    border:1.5px solid var(--line); border-radius:14px;
+    background:var(--surface);
+    transition:box-shadow .2s ease, border-color .2s ease;
+  }
+  .buscador:focus{
+    border-color:var(--violet);
+    box-shadow:0 0 0 4px var(--violet-soft);
+  }
+
+  .categorias{
+    display:flex; gap:9px; overflow-x:auto; padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .categoria{
+    flex:0 0 auto;
+    display:inline-flex; align-items:center; gap:7px;
+    padding:10px 15px; border-radius:999px;
+    background:var(--surface); border:1.5px solid var(--line);
+    font-weight:700; font-size:13.5px; color:var(--ink);
+    white-space:nowrap;
+  }
+  .categoria i{ font-style:normal; font-size:16px; }
+  .categoria{ transition:background .15s ease, border-color .15s ease, color .15s ease, transform .15s ease; }
+  .categoria:hover{ border-color:var(--acento,var(--violet)); color:var(--acento,var(--violet)); transform:translateY(-1px); }
+  .categoria.activa{
+    background:var(--acento-grad, var(--grad-hero)); border-color:transparent; color:#fff;
+  }
+
+  /* Acento de color propio por categoría */
+  .categoria[data-categoria="Frutas"]{ --acento:#E8491D; --acento-grad:linear-gradient(120deg,#F06A32,#E8491D); }
+  .categoria[data-categoria="Verduras"]{ --acento:#0C8A70; --acento-grad:linear-gradient(120deg,#12A88C,#0C8A70); }
+  .categoria[data-categoria="Abarrotes"]{ --acento:#C98A04; --acento-grad:linear-gradient(120deg,#E5A81C,#C98A04); }
+  .categoria[data-categoria="Lácteos"]{ --acento:#2F8FE0; --acento-grad:linear-gradient(120deg,#57A8ED,#2F8FE0); }
+  .categoria[data-categoria="Bebidas"]{ --acento:#0EA5B7; --acento-grad:linear-gradient(120deg,#2CC2D3,#0EA5B7); }
+  .categoria[data-categoria="Ofertas"]{ --acento:#D6217A; --acento-grad:linear-gradient(120deg,#F04D9C,#D6217A); }
+  .categoria[data-categoria="Bollería"]{ --acento:#8A5A2B; --acento-grad:linear-gradient(120deg,#AD7A46,#8A5A2B); }
+  .categoria[data-categoria="Tubérculos"]{ --acento:#B4620C; --acento-grad:linear-gradient(120deg,#D6812A,#B4620C); }
+  .categoria[data-categoria="Aliños"]{ --acento:#6E8F1F; --acento-grad:linear-gradient(120deg,#8FB531,#6E8F1F); }
+  .categoria[data-categoria="Cafés"]{ --acento:#6F4518; --acento-grad:linear-gradient(120deg,#8F5D28,#6F4518); }
+  .categoria[data-categoria="Tés"]{ --acento:#2F9757; --acento-grad:linear-gradient(120deg,#4CB877,#2F9757); }
+  .categoria[data-categoria="Papel"]{ --acento:#4E76A0; --acento-grad:linear-gradient(120deg,#6E97C2,#4E76A0); }
+  .categoria[data-categoria="Aseo del hogar"]{ --acento:#6D1FC7; --acento-grad:linear-gradient(120deg,#8B3FE8,#6D1FC7); }
+  .categoria[data-categoria="Aseo personal"]{ --acento:#C2318C; --acento-grad:linear-gradient(120deg,#E356AD,#C2318C); }
+  .categoria[data-categoria="Galletas"]{ --acento:#A6672C; --acento-grad:linear-gradient(120deg,#C6874A,#A6672C); }
+  .categoria[data-categoria="Snacks"]{ --acento:#E0421F; --acento-grad:linear-gradient(120deg,#F1663F,#E0421F); }
+  .categoria[data-categoria="Golosinas"]{ --acento:#D6217A; --acento-grad:linear-gradient(120deg,#F04D9C,#D6217A); }
+
+  /* ---------- Grilla de productos ---------- */
+  .productos{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+    gap:16px;
+  }
+  .producto{
+    position:relative; display:flex; flex-direction:column;
+    background:var(--surface); border:1px solid var(--line);
+    border-top:3px solid var(--acento, var(--violet));
+    border-radius:var(--radius-md); padding:12px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .producto:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-1), 0 0 0 1px var(--acento, var(--violet)) inset;
+  }
+  .producto.agotado{ opacity:.6; }
+
+  .chip-categoria{
+    align-self:flex-start;
+    margin-top:10px;
+    padding:3px 9px; border-radius:999px;
+    font-size:10.5px; font-weight:800;
+    letter-spacing:.2px; text-transform:uppercase;
+  }
+
+  .imagen-producto{
+    position:relative; overflow:hidden;
+    display:grid; place-items:center; aspect-ratio:1.1;
+    border-radius:12px; font-size:56px;
+  }
+  .imagen-producto img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover;
+  }
+  .emoji-respaldo{ position:relative; z-index:1; }
+
+  .etiqueta-producto{
+    position:absolute; top:20px; left:20px; z-index:2;
+    padding:5px 9px; border-radius:8px;
+    font-size:11px; font-weight:800;
+  }
+  .etiqueta-producto.oferta{ background:var(--grad-hero); color:#fff; }
+  .etiqueta-producto.nuevo{ background:var(--ink); color:#fff; }
+
+  .producto h3{ margin:12px 0 2px; font-size:15.5px; }
+  .producto .unidad{ color:var(--ink-soft); font-size:12.5px; }
+
+  .estado-stock{
+    display:inline-flex; align-items:center; gap:6px;
+    margin-top:8px; font-size:12px; font-weight:700;
+  }
+  .estado-stock .punto{ width:7px; height:7px; border-radius:50%; }
+  .estado-stock.disponible{ color:var(--mint); }
+  .estado-stock.disponible .punto{ background:var(--mint); }
+  .estado-stock.bajo{ color:#B4780C; }
+  .estado-stock.bajo .punto{ background:var(--citrine); }
+  .estado-stock.agotado{ color:var(--grey-off); }
+  .estado-stock.agotado .punto{ background:var(--grey-off); }
+
+  .pie-producto{
+    margin-top:auto; padding-top:12px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .precio{ font-weight:800; font-size:16.5px; }
+
+  .agregar{
+    width:38px; height:38px; border:0; border-radius:12px;
+    background:var(--acento, var(--grad-hero)); color:#fff; font-size:20px; font-weight:700;
+    display:grid; place-items:center;
+    box-shadow:0 6px 14px -6px var(--acento, transparent);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .agregar:hover:not(:disabled){ transform:scale(1.08); }
+  .agregar:disabled{ background:var(--line); color:var(--grey-off); cursor:not-allowed; box-shadow:none; }
+  .agregar.agregado{ background:var(--mint); }
+  @keyframes rebote{ 0%,100%{ transform:scale(1); } 40%{ transform:scale(1.18); } }
+  .agregar.agregado{ animation:rebote .35s ease; }
+
+  .mensaje-vacio{ color:var(--ink-soft); padding:30px 4px; }
+
+  /* ---------- Banner de pedido / Yape ---------- */
+  .banner-pedido{
+    display:grid; grid-template-columns:1.2fr .8fr; gap:0;
+    margin:20px 0 50px; border-radius:var(--radius-lg);
+    overflow:hidden; background:var(--surface); border:1px solid var(--line);
+  }
+  .banner-texto{ padding:34px; }
+  .banner-texto h2{ font-size:26px; }
+  .banner-texto p{ color:var(--ink-soft); max-width:480px; line-height:1.6; margin:10px 0 20px;}
+  .pasos-mini{ display:grid; gap:0; margin-top:4px; }
+  .paso-mini{
+    display:flex; gap:14px; align-items:flex-start; font-size:14.5px;
+    position:relative; padding-bottom:22px;
+  }
+  .paso-mini:last-child{ padding-bottom:0; }
+  .paso-mini::before{
+    content:""; position:absolute; left:15px; top:32px; bottom:0;
+    width:2px; background:var(--violet-soft);
+  }
+  .paso-mini:last-child::before{ display:none; }
+  .paso-mini .num{
+    flex:none; width:32px; height:32px; border-radius:50%;
+    background:var(--violet-soft); color:var(--violet);
+    display:grid; place-items:center; font-weight:800; font-size:14px;
+    z-index:1;
+  }
+  .paso-mini strong{ display:block; font-size:14.5px; }
+  .paso-mini span.detalle{ display:block; color:var(--ink-soft); font-size:13px; margin-top:2px; font-weight:400; }
+  .banner-visual{
+    background:var(--grad-hero);
+    display:flex; align-items:center; justify-content:center;
+    padding:34px; color:#fff;
+  }
+  .tarjeta-yape-mini{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:18px; padding:22px; text-align:center; width:100%;
+    backdrop-filter:blur(6px);
+  }
+  .tarjeta-yape-mini strong{ display:block; font-size:19px; margin-bottom:4px; }
+  .tarjeta-yape-mini small{ opacity:.9; }
+  .qr-mini-preview{
+    width:96px; height:96px; margin:14px auto 4px;
+    border-radius:14px; overflow:hidden; border:3px solid #fff;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,.45);
+  }
+  .qr-mini-preview img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .numero-yape-mini{
+    font-weight:800; font-size:16px; margin-top:8px;
+    letter-spacing:.3px;
+  }
+  .nota-entrega{
+    margin-top:14px; padding:10px 12px; border-radius:12px;
+    background:rgba(255,255,255,.16); font-size:12.5px; line-height:1.4;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{ padding:36px 0 90px; background:var(--ink); color:#EFE7FF; }
+  .pie{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:18px; flex-wrap:wrap;
+  }
+  footer .marca{ color:#fff; }
+  footer p{ color:#C6B8E6; font-size:13.5px; margin:4px 0 0; }
+
+  /* ---------- Botón flotante WhatsApp ---------- */
+  .flotante-wa{
+    position:fixed; right:18px; bottom:18px; z-index:35;
+    width:56px; height:56px; border-radius:50%;
+    background:var(--whatsapp); color:#fff; border:0;
+    display:grid; place-items:center; box-shadow:var(--shadow-2);
+  }
+
+  /* ---------- Carrito ---------- */
+  .fondo-carrito{
+    position:fixed; inset:0; z-index:49;
+    opacity:0; pointer-events:none;
+    background:rgba(20,12,36,.5);
+    transition:opacity .25s;
+  }
+  .fondo-carrito.mostrar{ opacity:1; pointer-events:auto; }
+
+  .carrito{
+    position:fixed; top:0; right:0; bottom:0; z-index:50;
+    display:flex; flex-direction:column;
+    width:min(440px,100%);
+    background:var(--bg);
+    transform:translateX(105%);
+    transition:transform .3s cubic-bezier(.2,.8,.25,1);
+    box-shadow:-24px 0 60px rgba(20,12,36,.25);
+  }
+  .carrito.mostrar{ transform:translateX(0); }
+
+  .carrito-cabecera{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 20px 16px; border-bottom:1px solid var(--line);
+    background:var(--surface);
+  }
+  .carrito-cabecera h2{ font-size:20px; }
+  .cerrar{
+    width:36px; height:36px; border:0; border-radius:10px;
+    background:var(--line); color:var(--ink); font-size:20px;
+  }
+
+  .cuerpo-carrito{ flex:1; overflow:auto; padding:14px 20px 4px; }
+
+  .items-carrito{ display:flex; flex-direction:column; gap:12px; }
+  .item-carrito{
+    display:flex; gap:12px; align-items:center;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:14px; padding:10px;
+  }
+  .emoji-carrito{
+    position:relative; overflow:hidden;
+    width:52px; height:52px; flex:none;
+    display:grid; place-items:center; border-radius:11px; font-size:26px;
+  }
+  .emoji-carrito img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover;
+  }
+  .info-carrito{ flex:1; min-width:0; }
+  .info-carrito strong{ display:block; font-size:14.5px; }
+  .info-carrito small{ display:block; margin-top:2px; color:var(--ink-soft); font-size:12.5px; }
+
+  .cantidad{ display:flex; align-items:center; gap:9px; margin-top:8px; }
+  .cantidad button{
+    width:26px; height:26px; border:1px solid var(--line); border-radius:8px;
+    background:var(--bg); font-weight:700;
+  }
+  .cantidad b{ min-width:16px; text-align:center; font-size:14px; }
+
+  .quitar{
+    border:0; background:transparent; color:var(--coral);
+    font-size:12px; font-weight:700; align-self:flex-start;
+  }
+
+  .vacio{ padding:56px 12px; color:var(--ink-soft); text-align:center; }
+  .vacio .emoji-vacio{ font-size:38px; display:block; margin-bottom:10px; }
+
+  .bloque-yape{
+    margin-top:18px; border-radius:18px; overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow-1);
+  }
+  .yape-cabecera{
+    background:linear-gradient(120deg,#7C2BF0,var(--yape));
+    color:#fff; padding:14px 16px;
+    display:flex; align-items:center; gap:8px;
+    font-family:'Baloo 2',Arial,sans-serif; font-weight:700; font-size:15.5px;
+  }
+  .yape-cabecera .logo-yape-mini{
+    width:26px; height:26px; border-radius:50%;
+    background:#00CFAE; display:grid; place-items:center;
+    font-size:13px; font-weight:800; color:#1C1330; flex:none;
+  }
+  .yape-cuerpo{ padding:16px; background:var(--surface); }
+  .qr-caja{
+    display:flex; align-items:center; gap:16px; margin-bottom:14px;
+  }
+  .qr-marco{
+    width:104px; height:104px; flex:none; border-radius:14px;
+    border:1px solid var(--line); overflow:hidden;
+    background:#fff; box-shadow:0 6px 16px -8px rgba(108,31,224,.45);
+    position:relative;
+  }
+  .qr-marco img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .datos-yape{ font-size:13px; flex:1; min-width:0; }
+  .datos-yape .etiqueta-mini{ color:var(--ink-soft); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.3px; }
+  .datos-yape strong{ display:block; font-size:15.5px; margin-top:1px; }
+  .numero-yape{
+    display:flex; align-items:center; gap:8px; margin-top:8px; font-weight:800; font-size:16px;
+  }
+  .copiar{
+    border:0; background:var(--violet-soft); color:var(--violet);
+    padding:6px 10px; border-radius:8px; font-size:11.5px; font-weight:700;
+  }
+  .pasos-yape{
+    display:grid; gap:8px; margin:14px 0; padding:12px;
+    background:var(--violet-soft); border-radius:12px;
+  }
+  .paso-yape{ display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink); line-height:1.4; }
+  .paso-yape .num{
+    flex:none; width:20px; height:20px; border-radius:50%;
+    background:var(--yape); color:#fff; font-size:11px; font-weight:800;
+    display:grid; place-items:center; margin-top:1px;
+  }
+  .campo-operacion label{ display:block; font-size:12.5px; font-weight:700; margin-bottom:6px; }
+  .campo-operacion input{
+    width:100%; padding:11px 12px; border:1.5px solid var(--line);
+    border-radius:10px; background:var(--bg);
+  }
+  .campo-operacion input:focus{ border-color:var(--yape); }
+
+  .pie-carrito{
+    padding:16px 20px 22px; border-top:1px solid var(--line); background:var(--surface);
+  }
+  .total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:12px;
+  }
+  .total span:first-child{ color:var(--ink-soft); font-size:14px; font-weight:600; }
+  .total span:last-child{ font-size:22px; font-weight:800; }
+
+  .nota-mini-entrega{
+    display:flex; gap:8px; align-items:flex-start;
+    background:var(--citrine); color:var(--citrine-ink);
+    border-radius:12px; padding:10px 12px; font-size:12.5px; line-height:1.4;
+    margin-bottom:12px; font-weight:600;
+  }
+
+  .whatsapp{
+    width:100%; border:0; border-radius:14px; padding:16px;
+    background:var(--whatsapp); color:#fff; font-size:15.5px; font-weight:800;
+    display:flex; align-items:center; justify-content:center; gap:9px;
+  }
+
+  .nota{ color:var(--ink-soft); font-size:11.5px; line-height:1.5; margin:10px 0 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:960px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .escena{ min-height:280px; order:-1; }
+    .beneficios{ grid-template-columns:1fr; }
+    .banner-pedido{ grid-template-columns:1fr; }
+  }
+  @media (max-width:720px){
+    .menu{ display:none; }
+    .boton-carrito span.texto-boton{ display:none; }
+    .pie{ display:block; }
+    footer .marca{ margin-bottom:6px; }
+  }
+</style>
+</head>
+
+<body>
+  <a class="saltar-enlace" href="#contenido-principal">Saltar al contenido</a>
+
+  <div class="franja-aviso" role="status">
+    🛵 Entrega disponible solo en la comunidad — costo por confirmar
+  </div>
+
+  <header>
+    <div class="contenedor navegacion">
+      <a href="#inicio" class="marca"><span class="punto" aria-hidden="true"></span>Anhema</a>
+
+      <nav class="menu" aria-label="Secciones">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#destacados">Destacados</a>
+        <a href="#pedido">Cómo pedir</a>
+      </nav>
+
+      <button class="boton-carrito" id="abrirCarrito" aria-haspopup="dialog">
+        <span aria-hidden="true">🛒</span>
+        <span class="texto-boton">Mi pedido</span>
+        <span class="contador" id="contadorCarrito" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <section class="hero" id="inicio">
+      <div class="contenedor hero-grid">
+        <div>
+          <span class="chip-estado">
+            <span class="led" aria-hidden="true"></span>
+            Abierto ahora · pedidos por WhatsApp
+          </span>
+
+          <h1>Todo lo de tu bodega, en un toque.</h1>
+
+          <p class="parrafo">
+            Elige tus productos, paga por Yape y envía tu pedido directo por WhatsApp.
+            Simple, rápido y pensado para tu comunidad.
+          </p>
+
+          <div class="botones">
+            <a class="boton-principal" href="#catalogo">Ver catálogo</a>
+            <a class="boton-secundario" href="#pedido">¿Cómo funciona?</a>
+          </div>
+        </div>
+
+        <div class="escena" aria-hidden="true">
+          <div class="burbuja b1"><span>🍅</span></div>
+          <div class="burbuja b2"><span>🥛</span></div>
+          <div class="burbuja b3"><span>🥬</span></div>
+          <div class="burbuja b4"><span>🥚</span></div>
+          <div class="burbuja b5"><span>🍌</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="contenedor">
+      <div class="beneficios">
+        <div class="beneficio">
+          <div class="beneficio-icono" aria-hidden="true">🥬</div>
+          <div>
+            <strong>Productos frescos</strong>
+            <small>Lo esencial, cerca de ti.</small>
+          </div>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio-icono" aria-hidden="true">💜</div>
+          <div>
+            <strong>Paga fácil con Yape</strong>
+            <small>QR, número y operación al instante.</small>
+          </div>
+        </div>
+
+        <div class="beneficio">
+          <div class="beneficio-icono" aria-hidden="true">💬</div>
+          <div>
+            <strong>Pedido por WhatsApp</strong>
+            <small>Resumen completo y confirmación rápida.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="contenedor" id="destacados">
+      <div class="encabezado-seccion">
+        <div>
+          <h2>Destacados de la semana</h2>
+          <p>Lo más pedido por tus vecinos.</p>
+        </div>
+      </div>
+
+      <div class="carrusel" id="carruselDestacados" tabindex="0" aria-label="Productos destacados, desliza para ver más"></div>
+    </section>
+
+    <section class="contenedor" id="catalogo">
+      <div class="encabezado-seccion">
+        <div>
+          <h2>Catálogo</h2>
+          <p>Busca por nombre o filtra por categoría.</p>
+        </div>
+      </div>
+
+      <div class="barra-catalogo">
+        <div class="campo-buscador">
+          <label class="sr-only" for="buscador">Buscar productos</label>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input class="buscador" id="buscador" type="search" placeholder="Buscar arroz, leche, frutas...">
+        </div>
+      </div>
+
+      <div class="categorias" id="categorias" role="tablist" aria-label="Categorías">
+        <button class="categoria activa" data-categoria="Todos"><i>🛍️</i>Todos</button>
+        <button class="categoria" data-categoria="Frutas"><i>🍎</i>Frutas</button>
+        <button class="categoria" data-categoria="Verduras"><i>🥦</i>Verduras</button>
+        <button class="categoria" data-categoria="Abarrotes"><i>🍚</i>Abarrotes</button>
+        <button class="categoria" data-categoria="Lácteos"><i>🥛</i>Lácteos</button>
+        <button class="categoria" data-categoria="Golosinas"><i>🍬</i>Golosinas</button>
+        <button class="categoria" data-categoria="Galletas"><i>🍪</i>Galletas</button>
+        <button class="categoria" data-categoria="Snacks"><i>🍿</i>Snacks</button>
+        <button class="categoria" data-categoria="Bebidas"><i>🥤</i>Bebidas</button>
+        <button class="categoria" data-categoria="Ofertas"><i>🏷️</i>Ofertas</button>
+        <button class="categoria" data-categoria="Bollería"><i>🍞</i>Bollería</button>
+        <button class="categoria" data-categoria="Tubérculos"><i>🥔</i>Tubérculos</button>
+        <button class="categoria" data-categoria="Aliños"><i>🧄</i>Aliños</button>
+        <button class="categoria" data-categoria="Cafés"><i>☕</i>Cafés</button>
+        <button class="categoria" data-categoria="Tés"><i>🍵</i>Tés</button>
+        <button class="categoria" data-categoria="Papel"><i>🧻</i>Papel</button>
+        <button class="categoria" data-categoria="Aseo del hogar"><i>🧼</i>Aseo del hogar</button>
+        <button class="categoria" data-categoria="Aseo personal"><i>🧴</i>Aseo personal</button>
+      </div>
+
+      <div style="height:16px"></div>
+
+      <div class="productos" id="listaProductos"></div>
+    </section>
+
+    <section class="contenedor" id="pedido">
+      <div class="banner-pedido">
+        <div class="banner-texto">
+          <h2>Tu pedido, en 3 pasos</h2>
+          <p>Agrega productos, paga por Yape y envía tu resumen. Te confirmamos disponibilidad, pago y entrega.</p>
+
+          <div class="pasos-mini">
+            <div class="paso-mini">
+              <span class="num">1</span>
+              <span><strong>🛒 Arma tu pedido</strong><span class="detalle">Busca o filtra por categoría y agrega productos al carrito.</span></span>
+            </div>
+            <div class="paso-mini">
+              <span class="num">2</span>
+              <span><strong>💜 Paga por Yape</strong><span class="detalle">Escanea el QR o usa el número, y guarda tu número de operación.</span></span>
+            </div>
+            <div class="paso-mini">
+              <span class="num">3</span>
+              <span><strong>💬 Envía por WhatsApp</strong><span class="detalle">Con un toque enviamos tu resumen y te confirmamos todo.</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner-visual">
+          <div class="tarjeta-yape-mini">
+            <strong>💜 Pago por Yape</strong>
+            <div class="qr-mini-preview">
+              <img src="imagenes/yape-qr.jpg" alt="Código QR de Yape de Anhema" loading="lazy">
+            </div>
+            <div class="numero-yape-mini">973 774 473</div>
+            <small>Escanea el QR o busca el número en tu app Yape</small>
+            <div class="nota-entrega">
+              🛵 Entrega disponible solo en la comunidad — costo por confirmar
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor pie">
+      <div>
+        <div class="marca">Anhema</div>
+        <p>Tu bodega de todos los días.</p>
+      </div>
+      <p>© 2026 Anhema · Pedidos por WhatsApp</p>
+    </div>
+  </footer>
+
+  <a class="flotante-wa" id="waFlotante" href="#" aria-label="Escríbenos por WhatsApp" target="_blank" rel="noopener">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.4A10 10 0 1 0 12 2Z" fill="#fff"/><path d="M12 3.6A8.4 8.4 0 0 0 4.8 16.8L4 19.4l2.7-.7A8.4 8.4 0 1 0 12 3.6Z" fill="#1DA851"/><path d="M9.2 7.6c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.4-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.6-1.6-.9-2.2Z" fill="#fff"/></svg>
+  </a>
+
+  <div class="fondo-carrito" id="fondoCarrito"></div>
+
+  <aside class="carrito" id="carrito" role="dialog" aria-modal="true" aria-label="Tu pedido">
+    <div class="carrito-cabecera">
+      <h2>Tu pedido</h2>
+      <button class="cerrar" id="cerrarCarrito" aria-label="Cerrar carrito">×</button>
+    </div>
+
+    <div class="cuerpo-carrito">
+      <div class="items-carrito" id="itemsCarrito"></div>
+
+      <div class="bloque-yape" id="bloqueYape" hidden>
+        <div class="yape-cabecera">
+          <span class="logo-yape-mini" aria-hidden="true">S/</span>
+          Paga con Yape
+        </div>
+        <div class="yape-cuerpo">
+          <div class="qr-caja">
+            <div class="qr-marco">
+              <img src="imagenes/yape-qr.jpg" alt="Código QR de Yape para pagar" loading="lazy">
+            </div>
+            <div class="datos-yape">
+              <span class="etiqueta-mini">A nombre de</span>
+              <strong id="yapeNombre">Anali Garcia Astudillo</strong>
+              <div class="numero-yape">
+                <span id="yapeNumero">973774473</span>
+                <button class="copiar" id="copiarYape" type="button">Copiar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pasos-yape">
+            <div class="paso-yape"><span class="num">1</span> Abre tu app Yape y escanea el código, o busca el número de arriba.</div>
+            <div class="paso-yape"><span class="num">2</span> Paga el total exacto de tu pedido (lo ves abajo).</div>
+            <div class="paso-yape"><span class="num">3</span> Copia tu número de operación y pégalo aquí 👇</div>
+          </div>
+
+          <div class="campo-operacion">
+            <label for="numeroOperacion">Número de operación Yape</label>
+            <input type="text" id="numeroOperacion" placeholder="Ej: 000123456" inputmode="numeric">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pie-carrito">
+      <div class="total">
+        <span>Total del pedido</span>
+        <span id="totalPedido">S/ 0.00</span>
+      </div>
+
+      <div class="nota-mini-entrega">
+        🛵 Entrega disponible solo en la comunidad.
+      </div>
+
+      <button class="whatsapp" id="enviarWhatsApp">
+        <span aria-hidden="true">💬</span> Enviar pedido por WhatsApp
+      </button>
+
+      <p class="nota">
+        Al enviar, se abrirá WhatsApp con el resumen de tu pedido, el total y tu número de operación (si lo ingresaste).
+      </p>
+    </div>
+  </aside>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN DE LA TIENDA — edita aquí sin tocar el resto
+   ========================================================= */
+const TIENDA = {
+  nombre: "Anhema",
+  whatsapp: "51973774473",     // Número de WhatsApp con código de país, sin espacios ni "+"
+  yape: {
+    titular: "Anali Garcia Astudillo",
+    numero: "973774473",
+    // El QR real ya está puesto en imagenes/yape-qr.jpg (ver bloque .qr-marco en el HTML).
+    // Si tu número de Yape cambia, solo actualiza "numero" aquí arriba.
+    // Si cambias de cuenta, reemplaza también la foto imagenes/yape-qr.jpg por tu nuevo QR.
+  }
+};
+
+/* =========================================================
+   PRODUCTOS — agrega, edita o elimina productos aquí.
+   stock puede ser: "disponible", "bajo" o "agotado"
+   ========================================================= */
+const productos = [
+  { id:1, nombre:"kr", unidad:"botella 400ml", precio:1.20, emoji:"🥤", imagen:"imagenes gaseosas/Kr.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:2, nombre:"Guarana ch", unidad:"botella 400ml", precio:1.20, emoji:"🥤", imagen:"imagenes gaseosas/Guarana Ch.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:12, nombre:"Guarana G", unidad:"botella 3L", precio:9.00, emoji:"🥤", imagen:"imagenes gaseosas/Guarana G.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:3, nombre:"Oro", unidad:"botella 1.7L", precio:4.20, emoji:"🥤", imagen:"imagenes gaseosas/Oro Ch.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:4, nombre:"Coca cola", unidad:"botella 600 ml", precio:3.50, emoji:"🥤", imagen:"imagenes gaseosas/Coca-Cola.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:5, nombre:"Pepsi", unidad:"botella 500ml", precio:2.20, emoji:"🥤", imagen:"imagenes gaseosas/Pepsi.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:6, nombre:"big cola", unidad:"botella 400ml", precio:1.20, emoji:"🥤", imagen:"imagenes gaseosas/Big cola.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:7, nombre:"Hey fit", unidad:"botella 500ml", precio:2.50, emoji:"🥤", imagen:"imagenes gaseosas/Hey fit.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:8, nombre:"Sporade", unidad:"Botella 500 ml", precio:2.50, emoji:"🥤", imagen:"imagenes gaseosas/Sporade.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:9, nombre:"Electro light", unidad:"botella 475ml", precio:2.50, emoji:"🥤", imagen:"imagenes gaseosas/Electro Light.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:10, nombre:"Dilyte", unidad:"Botella 650ml", precio:3.80, emoji:"🥤", imagen:"imagenes gaseosas/Dilyte.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:11, nombre:"Agua con gas", unidad:"san carlos 500ml", precio:1.50, emoji:"💧", imagen:"imagenes gaseosas/Agua Con Gas.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:13, nombre:"Agua G", unidad:"cielo 2,5L", precio:4.00, emoji:"💧", imagen:"imagenes gaseosas/Agua G.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:14, nombre:"Pulp ping", unidad:"250ml", precio:1.40, emoji:"🧃", imagen:"imagenes gaseosas/Pulp Ping.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:15, nombre:"Aloe", unidad:"botella 500ml", precio:3.50, emoji:"🌿", imagen:"imagenes gaseosas/Aloe.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:16, nombre:"Yogurt de fresa", unidad:"Botella 180g", precio:2.20, emoji:"🥛", imagen:"imagenes gaseosas/Yogurt De Fresa.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:17, nombre:"Agua sin gas", unidad:"cielo 750ml", precio:1.20, emoji:"💧", imagen:"imagenes gaseosas/Agua Sin Gas.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:18, nombre:"cifrut", unidad:"Botellla 350ml", precio:1.20, emoji:"🧃", imagen:"imagenes gaseosas/Cifrut.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:19, nombre:"cielo sabor manzana", unidad:"cielo 600ml", precio:1.50, emoji:"🧃", imagen:"imagenes gaseosas/Cielo Sabor Manzana.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:20, nombre:"wafer ch", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Wafers Ch.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:21, nombre:"Wafer G", unidad:"unidad", precio:1.50, emoji:"🍪", imagen:"imagenes galletas/Wafers G.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:22, nombre:"soda", unidad:"unidad", precio:0.40, emoji:"🍘", imagen:"imagenes galletas/Soda.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:23, nombre:"Rellenita", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Rellenita.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:24, nombre:"vainilla", unidad:"unidad", precio:0.50, emoji:"🍪", imagen:"imagenes galletas/Vainilla.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:25, nombre:"saltica", unidad:"unidad", precio:1.20, emoji:"🍪", imagen:"imagenes galletas/Saltica.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:26, nombre:"Ducal G", unidad:"unidad", precio:6.00, emoji:"🍪", imagen:"imagenes galletas/Ducal G.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:27, nombre:"Chicle de bola", unidad:"unidad", precio:0.20, emoji:"🍬", imagen:"imagenes golosinas/Chicle De Bola.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:28, nombre:"chicle de caja", unidad:"unidad", precio:0.20, emoji:"🍬", imagen:"imagenes golosinas/Chicle De Caja.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:29, nombre:"chicles amarillos", unidad:"unidad", precio:0.30, emoji:"🍬", imagen:"imagenes golosinas/Chicles Amarillos.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:30, nombre:"Hals", unidad:"unidad", precio:0.20, emoji:"🍬", imagen:"imagenes golosinas/Hals.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:31, nombre:"Chupetin", unidad:"unidad", precio:0.50, emoji:"🍭", imagen:"imagenes golosinas/Chupetin.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:32, nombre:"Caramelos", unidad:"unidad", precio:0.10, emoji:"🍬", imagen:"imagenes golosinas/Caramelos.jpg", categoria:"Golosinas", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:33, nombre:"Papa lais", unidad:"unidad", precio:0.80, emoji:"🍟", imagen:"imagenes snacks/Papa Lais.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:34, nombre:"Papa al hilo", unidad:"unidad", precio:0.80, emoji:"🍟", imagen:"imagenes snacks/Papa Al Hilo.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:35, nombre:"Cereal", unidad:"unidad", precio:0.80, emoji:"🥣", imagen:"imagenes snacks/Cereal.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:36, nombre:"Chistris", unidad:"unidad", precio:1.20, emoji:"🌽", imagen:"imagenes snacks/Chistris.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:37, nombre:"Doritos", unidad:"unidad", precio:1.20, emoji:"🌽", imagen:"imagenes snacks/Doritos.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:38, nombre:"chisito", unidad:"unidad", precio:0.80, emoji:"🍟", imagen:"imagenes snacks/Chisito.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:39, nombre:"Chifle G", unidad:"unidad", precio:1.20, emoji:"🍌", imagen:"imagenes snacks/Chifle G.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:40, nombre:"chifle Ch", unidad:"unidad", precio:0.60, emoji:"🍌", imagen:"imagenes snacks/Chifle Ch.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:41, nombre:"Papa rica", unidad:"unidad", precio:1.20, emoji:"🍟", imagen:"imagenes snacks/Papa Rica.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:42, nombre:"Dulces", unidad:"unidad", precio:1.00, emoji:"🍬", imagen:"imagenes bollería/Dulces.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:43, nombre:"Galletas de Agua", unidad:"paquete x4", precio:1.00, emoji:"💧", imagen:"imagenes bollería/Galletas De Agua.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:44, nombre:"Pan de molde", unidad:"paquete x4", precio:1.00, emoji:"🍞", imagen:"imagenes bollería/Pan De Molde.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:45, nombre:"tostadas", unidad:"paquete x4", precio:1.00, emoji:"🍞", imagen:"imagenes bollería/Tostadas.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:46, nombre:"Chancay", unidad:"unidad", precio:0.60, emoji:"🥖", imagen:"imagenes bollería/Chancay.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:47, nombre:"Manjares", unidad:"unidad", precio:0.50, emoji:"🍯", imagen:"imagenes bollería/Manjares.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+  { id:48, nombre:"Cocadas", unidad:"unidad", precio:0.50, emoji:"🥥", imagen:"imagenes bollería/Cocadas.jpg", categoria:"Bollería", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:49, nombre:"Mandarina", unidad:"unidad", precio:1.20, emoji:"🍊", imagen:"imagenes frutas/Mandarina.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:50, nombre:"Manzana", unidad:"unidad", precio:1.20, emoji:"🍎", imagen:"imagenes frutas/Manzana.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:51, nombre:"Platano", unidad:"unidad", precio:1.20, emoji:"🍌", imagen:"imagenes frutas/Platano.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:52, nombre:"Granadilla", unidad:"unidad", precio:1.20, emoji:"🍈", imagen:"imagenes frutas/Granadilla.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:53, nombre:"Papaya", unidad:"unidad", precio:1.20, emoji:"🍈", imagen:"imagenes frutas/Papaya.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:54, nombre:"Mango ciruelo", unidad:"unidad", precio:1.20, emoji:"🥭", imagen:"imagenes frutas/Mango Ciruelo.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:55, nombre:"Palta", unidad:"unidad", precio:1.20, emoji:"🥑", imagen:"imagenes verduras/Palta.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:56, nombre:"Tomate", unidad:"unidad", precio:1.20, emoji:"🍅", imagen:"imagenes verduras/Tomate.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:57, nombre:"Limon", unidad:"unidad", precio:1.20, emoji:"🍋", imagen:"imagenes frutas/Limon.jpg", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:58, nombre:"Cilantro", unidad:"unidad", precio:1.20, emoji:"🌿", imagen:"imagenes verduras/Cilantro.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:59, nombre:"Pimiento", unidad:"unidad", precio:1.20, emoji:"🫑", imagen:"imagenes verduras/Pimiento.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:60, nombre:"Zanahoria", unidad:"unidad", precio:1.20, emoji:"🥕", imagen:"imagenes verduras/Zanahoria.jpg", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:true },
+  { id:61, nombre:"Papa blanca", unidad:"unidad", precio:1.20, emoji:"🥔", imagen:"imagenes verduras/Papa Blanca.jpg", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:true },
+  { id:62, nombre:"Papa chancay", unidad:"unidad", precio:1.20, emoji:"🥖", imagen:"imagenes verduras/Papa Chancay.jpg", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:true },
+  { id:63, nombre:"cebolla china", unidad:"unidad", precio:1.20, emoji:"🧅", imagen:"imagenes verduras/Cebolla China.jpg", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:true },
+  { id:64, nombre:"Escabeche", unidad:"unidad", precio:1.20, emoji:"🥗", imagen:"imagenes verduras/Escabeche.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:65, nombre:"Ajies", unidad:"unidad", precio:1.20, emoji:"🌶️", imagen:"imagenes verduras/Ajies.jpg", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:true },
+  { id:66, nombre:"Cebolla", unidad:"unidad", precio:1.20, emoji:"🧅", imagen:"imagenes verduras/Cebolla.jpg", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:67, nombre:"Aji no moto", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Aji no moto.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:68, nombre:"Pimienta", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Pimienta.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:69, nombre:"Hongo y laurel", unidad:"unidad", precio:1.20, emoji:"🌿", imagen:"imagenes aliños/Hongo y Laurel.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:70, nombre:"Aji no moto G", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Aji no moto G.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:71, nombre:"Aji no moto ch", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Aji no moto ch.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:72, nombre:"Comino", unidad:"unidad", precio:0.60, emoji:"🧂", imagen:"imagenes aliños/Comino.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:73, nombre:"Palillo", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Palillo.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:74, nombre:"Panquita", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Panquita.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:75, nombre:"Oregano", unidad:"unidad", precio:1.20, emoji:"🌿", imagen:"imagenes aliños/Oregano.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:76, nombre:"Clavo de olor", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Clavo de Olor.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:77, nombre:"Canela", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Canela.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:78, nombre:"Doña gusta", unidad:"unidad", precio:1.20, emoji:"🧂", imagen:"imagenes aliños/Doña Gusta.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:79, nombre:"Deli arroz", unidad:"unidad", precio:1.20, emoji:"🍚", imagen:"imagenes aliños/Deli Arroz.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:80, nombre:"Aji Color", unidad:"unidad", precio:1.20, emoji:"🌶️", imagen:"imagenes aliños/Aji Color.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:81, nombre:"Ecco", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Ecco.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:82, nombre:"Milo", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Milo.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:83, nombre:"Altomayo", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Altomayo.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:84, nombre:"Don cafe", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Don Cafe.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:85, nombre:"kirma", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Kirma.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:86, nombre:"Fusion", unidad:"unidad", precio:1.20, emoji:"☕", imagen:"imagenes cafes/Fusion.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:87, nombre:"Cocoa", unidad:"unidad", precio:1.20, emoji:"🍫", imagen:"imagenes cafes/Cocoa.jpg", categoria:"Cafés", etiqueta:"", stock:"disponible", destacado:true },
+
+  { id:88, nombre:"Anis", unidad:"unidad", precio:1.20, emoji:"🍵", imagen:"imagenes tes/Anis.jpg", categoria:"Tés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:89, nombre:"Manzanilla", unidad:"unidad", precio:1.20, emoji:"🍵", imagen:"imagenes tes/Manzanilla.jpg", categoria:"Tés", etiqueta:"", stock:"disponible", destacado:true },
+  { id:90, nombre:"Té", unidad:"unidad", precio:1.20, emoji:"🍵", imagen:"imagenes tes/Té.jpg", categoria:"Tés", etiqueta:"", stock:"disponible", destacado:true },
+  
+  { id:91, nombre:"Papel Noble", unidad:"unidad", precio:1.20, emoji:"🧻", imagen:"imagenes papel/Papel Noble.jpg", categoria:"Papel", etiqueta:"", stock:"disponible", destacado:true },
+  { id:92, nombre:"Papel Elite ", unidad:"unidad", precio:1.20, emoji:"🧻", imagen:"imagenes papel/Papel Elite.jpg", categoria:"Papel", etiqueta:"", stock:"disponible", destacado:true },
+  { id:93, nombre:"Papel Noble G", unidad:"unidad", precio:1.20, emoji:"🧻", imagen:"imagenes papel/Papel Noble G.jpg", categoria:"Papel", etiqueta:"", stock:"disponible", destacado:true },
+  { id:94, nombre:"Papel Higenol", unidad:"unidad", precio:1.20, emoji:"🧻", imagen:"imagenes papel/Papel Higenol.jpg", categoria:"Papel", etiqueta:"", stock:"disponible", destacado:true },
+
+  /* ===== Nuevos productos agregados (lista de inventario en papel) ===== */
+  { id:200, nombre:"Leche Gloria grande", unidad:"tarro grande", precio:4.50, emoji:"🥛", imagen:"imagenes abarrotes/Leche Gloria Grande.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:201, nombre:"Leche Gloria chica", unidad:"tarro chico", precio:2.50, emoji:"🥛", imagen:"imagenes abarrotes/Leche Gloria Chica.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:202, nombre:"Atún Cardinal", unidad:"lata", precio:4.80, emoji:"🐟", imagen:"imagenes abarrotes/Atun Cardinal.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:203, nombre:"Atún Pimentel", unidad:"lata", precio:3.00, emoji:"🥫", imagen:"imagenes abarrotes/Atun Pimentel.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:204, nombre:"Aceite Primor", unidad:"botella", precio:12.00, emoji:"🫒", imagen:"imagenes abarrotes/Aceite Primor.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:205, nombre:"Aceite Mirasol", unidad:"botella", precio:9.00, emoji:"🫒", imagen:"imagenes abarrotes/Aceite Mirasol.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:206, nombre:"La Patrona grande", unidad:"botella grande", precio:5.20, emoji:"🌶️", imagen:"imagenes abarrotes/La Patrona Grande.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:207, nombre:"La Patrona chica", unidad:"botella chica", precio:2.50, emoji:"🌶️", imagen:"imagenes abarrotes/La Patrona Chico.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:208, nombre:"Harina", unidad:"bolsa", precio:1.50, emoji:"🌾", imagen:"imagenes abarrotes/Harina.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:209, nombre:"Aceituna", unidad:"unidad", precio:0.50, emoji:"🫒", imagen:"imagenes abarrotes/Aceituna.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:210, nombre:"Gelatina", unidad:"caja", precio:3.80, emoji:"🍮", imagen:"imagenes abarrotes/Gelatina.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:211, nombre:"Sal", unidad:"bolsa", precio:1.00, emoji:"🧂", imagen:"imagenes abarrotes/Sal.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:212, nombre:"Huevo", unidad:"unidad", precio:0.60, emoji:"🥚", imagen:"imagenes abarrotes/Huevo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:213, nombre:"Avena", unidad:"bolsa", precio:1.20, emoji:"🌾", imagen:"imagenes abarrotes/Avena.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:214, nombre:"Fideos Alianza rosca", unidad:"paquete",precio:1.60, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Rosca.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:215, nombre:"Fideos Alianza largo", unidad:"paquete", precio:1.60, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Largo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:216, nombre:"Harina de maíz", unidad:"bolsa", precio:1.50, emoji:"🌽", imagen:"imagenes abarrotes/Harina de Maiz.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:217, nombre:"Mayonesa chica", unidad:"frasco chico", precio:2.30, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa Chica.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:218, nombre:"Mayonesa grande", unidad:"frasco grande", precio:4.00, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa Grande.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:219, nombre:"Tari", unidad:"sobre", precio:0.40, emoji:"🧃", imagen:"imagenes abarrotes/Tari.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:220, nombre:"Maizena", unidad:"caja", precio:2.80, emoji:"🌽", imagen:"imagenes abarrotes/Maizena.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:221, nombre:"Vinagre blanco", unidad:"botella", precio:1.30, emoji:"🧴", imagen:"imagenes abarrotes/Vinagre Blanco.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:222, nombre:"Vinagre tinto", unidad:"botella", precio:1.30, emoji:"🧴", imagen:"imagenes abarrotes/Vinagre Tinto.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:223, nombre:"Sillao", unidad:"botella", precio:1.00, emoji:"🍶", imagen:"imagenes abarrotes/Sillao.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:224, nombre:"Aderezo", unidad:"frasco", precio:3.60, emoji:"🥫", imagen:"imagenes abarrotes/Aderezo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:225, nombre:"Esencia de vainilla grande", unidad:"frasco grande", precio:1.20, emoji:"🍪", imagen:"imagenes abarrotes/Esencia de Vainilla Grande.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:226, nombre:"Esencia de vainilla chica", unidad:"frasco chico", precio:0.80, emoji:"🍪", imagen:"imagenes abarrotes/Esencia de Vainilla Chica.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:227, nombre:"Fósforos", unidad:"caja", precio:0.30, emoji:"🥤", imagen:"imagenes abarrotes/Fosforos.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:228, nombre:"Jugo en sobre", unidad:"sobre", precio:1.30, emoji:"🧃", imagen:"imagenes abarrotes/Jugo en Sobre.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:229, nombre:"Espiral antimosquitos", unidad:"unidad", precio:0.50, emoji:"🦟", imagen:"imagenes abarrotes/Espiral Antimosquitos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:230, nombre:"Pastillas antimosquitos", unidad:"paquete x4", precio:1.00, emoji:"🦟", imagen:"imagenes abarrotes/Pastillas Antimosquitos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:231, nombre:"Velas", unidad:"unidad", precio:0.30, emoji:"🕯️", imagen:"imagenes abarrotes/Velas.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:232, nombre:"Pilas AA", unidad:"unidad", precio:1.00, emoji:"🔋", imagen:"imagenes abarrotes/Pilas AA.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+
+  { id:233, nombre:"Ace Marsella grande", unidad:"bolsa grande", precio:4.50, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Marsella Grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
+  { id:234, nombre:"Ace Marsella chico", unidad:"bolsa chica", precio:2.50, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Marsella Chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:235, nombre:"Ace Trome", unidad:"sobre", precio:1.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Trome.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:236, nombre:"Ace Patito", unidad:"sobre", precio:1.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Patito.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:237, nombre:"Ace Opal grande", unidad:"bolsa grande", precio:5.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:238, nombre:"Ace Opal chico", unidad:"bolsa chica", precio:2.60, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:239, nombre:"Ace Dest", unidad:"sobre", precio:1.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Dest.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:240, nombre:"Jabón Marsella", unidad:"barra", precio:3.00, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Marsella.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:241, nombre:"Jabón Patito", unidad:"barra", precio:2.20, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Patito.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:242, nombre:"Jabón Trome", unidad:"barra", precio:2.20, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Trome.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:243, nombre:"Lejía cojin", unidad:"unidad", precio:0.40, emoji:"🧴", imagen:"imagenes Aseo del hogar/Lejía cojin.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:244, nombre:"Lejía clorox grande", unidad:"botella grande", precio:2.50, emoji:"🥤", imagen:"imagenes Aseo del hogar/Lejía clorox grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:245, nombre:"Lejía clorox chica", unidad:"botella chica", precio:1.60, emoji:"🥤", imagen:"imagenes Aseo del hogar/Lejía clorox chica.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:246, nombre:"Clorox color grande", unidad:"botella grande", precio:3.50, emoji:"🥤", imagen:"imagenes Aseo del hogar/Clorox color grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:247, nombre:"Vanish", unidad:"unidad", precio:1.80, emoji:"🍵", imagen:"imagenes Aseo del hogar/Vanish.png", categoria:"Aseo delhogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:248, nombre:"Clorox color chico", unidad:"botella chica", precio:1.80, emoji:"🥤", imagen:"imagenes Aseo del hogar/Clorox color chico.png", categoria:"Aseo delhogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:249, nombre:"Suavizante bolivar", unidad:"sobre", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Suavizante bolivar.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:250, nombre:"Suavitel ropa blanca", unidad:"sobre", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Suavitel ropa blanca.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:251, nombre:"Clorox color ropa", unidad:"unidad", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Clorox color ropa.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:252, nombre:"Dest Lavavajilla", unidad:"envase", precio:6.50, emoji:"🧴", imagen:"imagenes Aseo del hogar/Dest lavavajillas.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:253, nombre:"Ayudin pomo", unidad:"pomo", precio:6.00, emoji:"🧴", imagen:"imagenes Aseo del hogar/Ayudin pomo.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:254, nombre:"Trapo amarillo", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Trapo amarillo.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:255, nombre:"Mata moscas", unidad:"unidad", precio:9.00, emoji:"🪰", imagen:"imagenes Aseo del hogar/Mata moscas.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:256, nombre:"Sapolio", unidad:"unidad", precio:3.50, emoji:"🧽", imagen:"imagenes Aseo del hogar/Sapolio.png", categoria:"Aseo del hogar", etiqueta:"", stock :"disponible", destacado:false },
+  { id:257, nombre :"Tricks", unidad:"unidad", precio:0.60, emoji:"🧽", imagen:"imagenes Aseo del hogar/Tricks.png", categoria:"Aseo delhogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:258, nombre:"Esponja de fierro", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Esponja de fierro.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:259, nombre:"Esponja amarilla", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Esponja amarilla.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+
+  { id:260, nombre:"Shampoo Pantene", unidad:"sachet", precio:1.20, emoji:"🧴", imagen:"imagenes Aseo personal/Shampoo Pantene.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
+  { id:261, nombre:"Shampoo Sedal", unidad:"sachet", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Shampoo Sedal.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:262, nombre:"Head & Shoulders sachet", unidad:"sachet", precio:1.00, emoji:"🧴", imagen:"imagenes Aseo personal/Head & Shoulders sachet.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:263, nombre:"Head & Shoulders pomo", unidad:"pomo", precio:5.00, emoji:"🧴", imagen:"imagenes Aseo personal/Head & Shoulders pomo.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:264, nombre:"Hisopos", unidad:"unidad", precio:0.80, emoji:"🧴", imagen:"imagenes Aseo personal/Hisopos.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:265, nombre:"Desodorante Rexona", unidad:"unidad", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Desodorante Rexona.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:266, nombre:"Lady Speed Stick", unidad:"unidad", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Lady Speed Stick.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:267, nombre:"Nutribela", unidad:"sachet", precio:1.50, emoji:"💊", imagen:"imagenes Aseo personal/Nutribela.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:268, nombre:"Jabón Protex", unidad:"barra", precio:4.00, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Protex.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:269, nombre:"Jabón Neko", unidad:"barra", precio:3.50, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Neko.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:270, nombre:"Pañal", unidad:"unidad", precio:1.30, emoji:"👶", imagen:"imagenes Aseo personal/Pañal.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:271, nombre:"Pasta dental Colgate grande", unidad:"tubo grande", precio:11.00, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental Colgate grande.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
+  { id:272, nombre:"Pasta dental Colgate chica", unidad:"tubo chico", precio:6.50, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental Colgate chica.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:273, nombre:"Pasta dental dento", unidad:"tubo", precio:3.00, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental dento.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:274, nombre:"Cepillo dental Colgate", unidad:"unidad", precio:2.80, emoji:"🪥", imagen:"imagenes Aseo personal/Cepillo dental Colgate.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:275, nombre:"Cepillo dental Kolynos", unidad:"unidad", precio:2.80, emoji:"🪥", imagen:"imagenes Aseo personal/Cepillo dental Kolynos.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:276, nombre:"Toallas higiénicas Nosotras", unidad:"paquete", precio:5.00, emoji:"🌸", imagen:"imagenes Aseo personal/Toallas higiénicas Nosotras.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:277, nombre:"Toallas higiénicas nocturnas", unidad:"paquete", precio:9.00, emoji:"🌸", imagen:"imagenes Aseo personal/Toallas higiénicas nocturnas.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:278, nombre:"Toallitas húmedas", unidad:"paquete", precio:2.50, emoji:"🧻", imagen:"imagenes Aseo personal/Toallitas húmedas.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:279, nombre:"Oro", unidad:"botella 3L", precio:7.50, emoji:"🥤", imagen:"imagenes gaseosas/Oro.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:280, nombre:"Oreo", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Oreo.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:281, nombre:"Tentacion", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Tentacion.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:282, nombre:"Piqueo", unidad:"unidad", precio:1.20, emoji:"🍟", imagen:"imagenes snacks/Piqueo.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
+  { id:283, nombre:"Pilas AAA", unidad:"unidad", precio:1.00, emoji:"🔋", imagen:"imagenes abarrotes/Pilas AAA.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:284, nombre:"Ritz queso", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Ritz queso.png", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+];
+
+/*
+  CÓMO PONER UNA FOTO REAL A UN PRODUCTO:
+  1) Guarda tu foto en una carpeta llamada "imagenes" al lado de este archivo HTML.
+  2) En el producto, escribe la ruta en "imagen", por ejemplo:
+     imagen: "imagenes/platano.jpg"
+  3) Si "imagen" queda vacío (""), se mostrará el emoji como respaldo automáticamente.
+  4) Si la foto no carga (nombre mal escrito, archivo movido, etc.), también
+     se mostrará el emoji de respaldo — nunca se romperá la página.
+*/
+
+/* Colores de fondo por categoría, para las imágenes de producto */
+const coloresCategoria = {
+  "Frutas":           "linear-gradient(160deg,#FFE1CE,#FFB199)",
+  "Verduras":         "linear-gradient(160deg,#D9F6EC,#8FE3CB)",
+  "Abarrotes":        "linear-gradient(160deg,#FFF0C2,#FFD666)",
+  "Lácteos":          "linear-gradient(160deg,#DCEDFF,#9FC9FA)",
+  "Bebidas":          "linear-gradient(160deg,#CFF7F6,#7FDEDC)",
+  "Snacks":           "linear-gradient(160deg,#FFE1D6,#FFAE94)",
+  "Galletas":         "linear-gradient(160deg,#F3E3CE,#DFB77D)",
+  "Golosinas":        "linear-gradient(160deg,#FFD9E8,#FF9FC4)",
+  "Bollería":         "linear-gradient(160deg,#F1E0CE,#D7A467)",
+  "Tubérculos":       "linear-gradient(160deg,#FBE3C7,#F2B26B)",
+  "Aliños":           "linear-gradient(160deg,#EAF3C9,#C4DD7E)",
+  "Cafés":            "linear-gradient(160deg,#E7D3BC,#B98352)",
+  "Tés":              "linear-gradient(160deg,#DCF3E1,#94D3A4)",
+  "Papel":            "linear-gradient(160deg,#E3EDF6,#AFC9DD)",
+  "Aseo del hogar":   "linear-gradient(160deg,#EBDFFC,#C6A2F7)",
+  "Aseo personal":    "linear-gradient(160deg,#FCE0F0,#F4A9D2)",
+};
+
+/* Color sólido de acento por categoría — usado en etiquetas, bordes e iconos */
+const acentoCategoria = {
+  "Frutas":"#E8491D", "Verduras":"#0C8A70", "Abarrotes":"#C98A04",
+  "Lácteos":"#2F8FE0", "Bebidas":"#0EA5B7", "Snacks":"#E0421F",
+  "Galletas":"#A6672C", "Golosinas":"#D6217A", "Bollería":"#8A5A2B",
+  "Tubérculos":"#B4620C", "Aliños":"#6E8F1F", "Cafés":"#6F4518",
+  "Tés":"#2F9757", "Papel":"#4E76A0", "Aseo del hogar":"#6D1FC7",
+  "Aseo personal":"#C2318C"
+};
+
+let carrito = [];
+let categoriaActual = "Todos";
+
+function moneda(numero){ return "S/ " + numero.toFixed(2); }
+
+function fondoCategoria(categoria){
+  return coloresCategoria[categoria] || "linear-gradient(160deg,#EDEBF7,#D6D2EE)";
+}
+
+function acentoDe(categoria){
+  return acentoCategoria[categoria] || "#6D1FC7";
+}
+
+function medioProducto(producto, clase){
+  const fondo = fondoCategoria(producto.categoria);
+
+  if(producto.imagen){
+    return `
+      <div class="${clase}" style="background:${fondo}">
+        <img
+          src="${producto.imagen}"
+          alt="${producto.nombre}"
+          loading="lazy"
+          onerror="this.remove(); this.parentElement.querySelector('.emoji-respaldo').style.display='grid';"
+        >
+        <span class="emoji-respaldo" aria-hidden="true" style="display:none">${producto.emoji}</span>
+      </div>`;
+  }
+
+  return `<div class="${clase}" style="background:${fondo}" aria-hidden="true">${producto.emoji}</div>`;
+}
+
+function etiquetaStock(stock){
+  if(stock === "agotado"){
+    return '<span class="estado-stock agotado"><span class="punto"></span>Agotado</span>';
+  }
+  if(stock === "bajo"){
+    return '<span class="estado-stock bajo"><span class="punto"></span>Pocas unidades</span>';
+  }
+  return '<span class="estado-stock disponible"><span class="punto"></span>Disponible</span>';
+}
+
+function tarjetaProducto(producto){
+  const agotado = producto.stock === "agotado";
+  const acento = acentoDe(producto.categoria);
+  return `
+    <article class="producto ${agotado ? "agotado" : ""}" style="--acento:${acento}">
+      ${producto.etiqueta === "Oferta" ? '<span class="etiqueta-producto oferta">Oferta</span>' : ""}
+
+      ${medioProducto(producto, "imagen-producto")}
+
+      <span class="chip-categoria" style="color:${acento};background:${acento}1A">${producto.categoria}</span>
+      <h3>${producto.nombre}</h3>
+      <span class="unidad">${producto.unidad}</span>
+      ${etiquetaStock(producto.stock)}
+
+      <div class="pie-producto">
+        <span class="precio">${moneda(producto.precio)}</span>
+        <button class="agregar" data-id="${producto.id}" style="--acento:${acento}" aria-label="Agregar ${producto.nombre} al pedido" ${agotado ? "disabled" : ""}>+</button>
+      </div>
+    </article>
+  `;
+}
+
+function mostrarDestacados(){
+  const destacados = productos.filter(p => p.destacado);
+  const carrusel = document.getElementById("carruselDestacados");
+
+  carrusel.innerHTML = destacados.map(producto => `
+    <article class="tarjeta-destacado">
+      ${medioProducto(producto, "imagen-destacado")}
+      <h3>${producto.nombre}</h3>
+      <small>${producto.unidad}</small>
+      <div class="fila-precio-mini">
+        <span class="precio-mini">${moneda(producto.precio)}</span>
+        <button class="agregar" data-id="${producto.id}" aria-label="Agregar ${producto.nombre} al pedido" style="width:32px;height:32px;font-size:17px;" ${producto.stock === "agotado" ? "disabled" : ""}>+</button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function mostrarProductos(){
+  const textoBusqueda = document.getElementById("buscador").value.toLowerCase();
+
+  const productosFiltrados = productos.filter(producto => {
+    const coincideCategoria =
+      categoriaActual === "Todos" ||
+      (categoriaActual === "Ofertas" ? producto.etiqueta === "Oferta" : producto.categoria === categoriaActual);
+    const coincideBusqueda = producto.nombre.toLowerCase().includes(textoBusqueda);
+    return coincideCategoria && coincideBusqueda;
+  });
+
+  const lista = document.getElementById("listaProductos");
+
+  if(productosFiltrados.length === 0){
+    lista.innerHTML = '<p class="mensaje-vacio">No encontramos productos con ese nombre o filtro.</p>';
+    return;
+  }
+
+  lista.innerHTML = productosFiltrados.map(tarjetaProducto).join("");
+}
+
+function agregarProducto(id){
+  const producto = productos.find(item => item.id === id);
+  if(!producto || producto.stock === "agotado") return;
+
+  const existe = carrito.find(item => item.id === id);
+  if(existe){
+    existe.cantidad++;
+  } else {
+    carrito.push({ ...producto, cantidad:1 });
+  }
+  mostrarCarrito();
+}
+
+function mostrarCarrito(){
+  const itemsCarrito = document.getElementById("itemsCarrito");
+  const contador = document.getElementById("contadorCarrito");
+  const bloqueYape = document.getElementById("bloqueYape");
+
+  const cantidadTotal = carrito.reduce((s,i) => s + i.cantidad, 0);
+  const total = carrito.reduce((s,i) => s + i.precio * i.cantidad, 0);
+
+  contador.textContent = cantidadTotal;
+  document.getElementById("totalPedido").textContent = moneda(total);
+
+  if(carrito.length === 0){
+    itemsCarrito.innerHTML = `
+      <div class="vacio">
+        <span class="emoji-vacio" aria-hidden="true">🛍️</span>
+        Tu carrito está vacío.<br>Agrega productos para comenzar.
+      </div>`;
+    bloqueYape.hidden = true;
+    return;
+  }
+
+  bloqueYape.hidden = false;
+  document.getElementById("yapeNombre").textContent = TIENDA.yape.titular;
+  document.getElementById("yapeNumero").textContent = TIENDA.yape.numero;
+
+  itemsCarrito.innerHTML = carrito.map(item => `
+    <div class="item-carrito">
+      ${medioProducto(item, "emoji-carrito")}
+      <div class="info-carrito">
+        <strong>${item.nombre}</strong>
+        <small>${moneda(item.precio)} · ${item.unidad}</small>
+        <div class="cantidad">
+          <button data-cambiar="${item.id}" data-direccion="-1" aria-label="Quitar una unidad de ${item.nombre}">−</button>
+          <b>${item.cantidad}</b>
+          <button data-cambiar="${item.id}" data-direccion="1" aria-label="Agregar una unidad de ${item.nombre}">+</button>
+        </div>
+      </div>
+      <button class="quitar" data-quitar="${item.id}">Quitar</button>
+    </div>
+  `).join("");
+}
+
+function cambiarCantidad(id, direccion){
+  const item = carrito.find(p => p.id === id);
+  if(!item) return;
+  item.cantidad += direccion;
+  if(item.cantidad < 1){
+    carrito = carrito.filter(p => p.id !== id);
+  }
+  mostrarCarrito();
+}
+
+let ultimoFoco = null;
+
+function abrirCarrito(){
+  ultimoFoco = document.activeElement;
+  document.getElementById("carrito").classList.add("mostrar");
+  document.getElementById("fondoCarrito").classList.add("mostrar");
+  document.getElementById("cerrarCarrito").focus();
+  document.body.style.overflow = "hidden";
+}
+
+function cerrarCarrito(){
+  document.getElementById("carrito").classList.remove("mostrar");
+  document.getElementById("fondoCarrito").classList.remove("mostrar");
+  document.body.style.overflow = "";
+  if(ultimoFoco) ultimoFoco.focus();
+}
+
+function confirmarAgregado(boton){
+  if(!boton) return;
+  boton.classList.add("agregado");
+  setTimeout(() => boton.classList.remove("agregado"), 350);
+}
+
+document.getElementById("listaProductos").addEventListener("click", e => {
+  const boton = e.target.closest("[data-id]");
+  const id = Number(boton && boton.dataset.id);
+  if(id){ agregarProducto(id); confirmarAgregado(boton); }
+});
+
+document.getElementById("carruselDestacados").addEventListener("click", e => {
+  const boton = e.target.closest("[data-id]");
+  const id = Number(boton && boton.dataset.id);
+  if(id){ agregarProducto(id); confirmarAgregado(boton); }
+});
+
+document.getElementById("categorias").addEventListener("click", e => {
+  const boton = e.target.closest("[data-categoria]");
+  if(!boton) return;
+  categoriaActual = boton.dataset.categoria;
+  document.querySelectorAll(".categoria").forEach(el => el.classList.remove("activa"));
+  boton.classList.add("activa");
+  mostrarProductos();
+});
+
+document.getElementById("buscador").addEventListener("input", mostrarProductos);
+
+document.getElementById("abrirCarrito").addEventListener("click", abrirCarrito);
+document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+document.getElementById("fondoCarrito").addEventListener("click", cerrarCarrito);
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape" && document.getElementById("carrito").classList.contains("mostrar")){
+    cerrarCarrito();
+  }
+});
+
+document.getElementById("itemsCarrito").addEventListener("click", e => {
+  const idCambiar = Number(e.target.dataset.cambiar);
+  const direccion = Number(e.target.dataset.direccion);
+  const idQuitar = Number(e.target.dataset.quitar);
+
+  if(idCambiar) cambiarCantidad(idCambiar, direccion);
+  if(idQuitar){
+    carrito = carrito.filter(item => item.id !== idQuitar);
+    mostrarCarrito();
+  }
+});
+
+document.getElementById("copiarYape").addEventListener("click", () => {
+  const numero = TIENDA.yape.numero;
+  const boton = document.getElementById("copiarYape");
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(numero).then(() => {
+      const original = boton.textContent;
+      boton.textContent = "¡Copiado!";
+      setTimeout(() => { boton.textContent = original; }, 1500);
+    });
+  }
+});
+
+document.getElementById("enviarWhatsApp").addEventListener("click", () => {
+  if(carrito.length === 0){
+    alert("Primero agrega productos a tu pedido.");
+    return;
+  }
+
+  const numeroOperacion = document.getElementById("numeroOperacion").value.trim();
+
+  const listaPedido = carrito.map(item =>
+    `• ${item.nombre} (${item.unidad}) x${item.cantidad} — ${moneda(item.precio * item.cantidad)}`
+  ).join("\n");
+
+  const total = carrito.reduce((s,i) => s + i.precio * i.cantidad, 0);
+
+  const mensaje = `🛍️ *Nuevo pedido — ${TIENDA.nombre}*
+
+📋 *Productos:*
+${listaPedido}
+
+💰 *Total a pagar:* ${moneda(total)}
+
+💜 *Pago:* Yape (${TIENDA.yape.titular})
+🧾 *N° de operación:* ${numeroOperacion || "Aún no lo envié, se los paso enseguida"}
+
+🛵 *Entrega:* disponible solo en la comunidad — costo por confirmar
+
+¡Gracias! Quedo atento(a) a la confirmación 🙌`;
+
+  const enlace = `https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent(mensaje)}`;
+  window.open(enlace, "_blank");
+});
+
+document.getElementById("waFlotante").href =
+  `https://wa.me/${TIENDA.whatsapp}?text=${encodeURIComponent("Hola, tengo una consulta sobre " + TIENDA.nombre + ".")}`;
+
+mostrarDestacados();
+mostrarProductos();
+mostrarCarrito();
+</script>
+</body>
+</html>
