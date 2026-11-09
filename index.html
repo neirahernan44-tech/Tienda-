@@ -931,7 +931,7 @@
     </div>
 
     <div class="pie-carrito">
-      <div class="nota-mini-entrega" id="avisoKilo" hidden>⚖️ Frutas y verduras: el total es estimado; te confirmamos el precio final al pesar.</div>
+      <div class="nota-mini-entrega" id="avisoKilo" hidden>⚖️ Frutas, verduras y tubérculos: el precio se confirma al pesar. El total no los incluye todavía.</div>
 
       <div class="total">
         <span>Total del pedido</span>
@@ -985,8 +985,8 @@ const productos = [
   { id:9, nombre:"Electro Light", unidad:"botella 475 ml", precio:2.50, emoji:"🥤", imagen:"imagenes gaseosas/Electro Light.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:false },
   { id:10, nombre:"Dilyte", unidad:"botella 650 ml", precio:3.80, emoji:"🥤", imagen:"imagenes gaseosas/Dilyte.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
   { id:11, nombre:"Agua con gas", unidad:"San Carlos 500 ml", precio:1.50, emoji:"💧", imagen:"imagenes gaseosas/Agua Con Gas.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
-  { id:13, nombre:"Agua grande", unidad:"Cielo 2.5 L", precio:4.00, emoji:"💧", imagen:"imagenes gaseosas/Agua G.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
-  { id:14, nombre:"Pulp Ping", unidad:"250 ml", precio:1.40, emoji:"🧃", imagen:"imagenes gaseosas/Pulp Ping.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:13, nombre:"Agua grande", unidad:"vida 3.0 L", precio:3.00, emoji:"💧", imagen:"imagenes gaseosas/Agua Grande.png", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:14, nombre:"Pulp Ping", unidad:"250 ml", precio:1.50, emoji:"🧃", imagen:"imagenes gaseosas/Pulp Ping.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
   { id:15, nombre:"Aloe", unidad:"botella 500 ml", precio:3.50, emoji:"🌿", imagen:"imagenes gaseosas/Aloe.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
   { id:16, nombre:"Yogurt de fresa", unidad:"botella 180 g", precio:2.20, emoji:"🥛", imagen:"imagenes gaseosas/Yogurt De Fresa.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
   { id:17, nombre:"Agua sin gas", unidad:"Cielo 750 ml", precio:1.20, emoji:"💧", imagen:"imagenes gaseosas/Agua Sin Gas.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
@@ -1036,11 +1036,10 @@ const productos = [
   { id:56, nombre:"Panquita", unidad:"unidad", precio:0.90, emoji:"🧂", imagen:"imagenes aliños/Panquita.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:57, nombre:"Orégano", unidad:"unidad", precio:0.50, emoji:"🌿", imagen:"imagenes aliños/Oregano.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:58, nombre:"Clavo de olor", unidad:"unidad", precio:0.60, emoji:"🧂", imagen:"imagenes aliños/Clavo de Olor.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
-  { id:59, nombre:"Canela", unidad:"unidad", precio:0.50, emoji:"🧂", imagen:"imagenes aliños/Canela.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:60, nombre:"Doña Gusta", unidad:"unidad", precio:0.40, emoji:"🧂", imagen:"imagenes aliños/Doña Gusta.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:61, nombre:"Deli Arroz", unidad:"unidad", precio:0.40, emoji:"🍚", imagen:"imagenes aliños/Deli Arroz.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:62, nombre:"Ají color", unidad:"unidad", precio:0.70, emoji:"🌶️", imagen:"imagenes aliños/Aji Color.jpg", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
-  { id:63, nombre:"Canela chica", unidad:"unidad", precio:1.20, emoji:"🌶️", imagen:"imagenes aliños/canela ch.png", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
+  { id:63, nombre:"Canela chica", unidad:"unidad", precio:0.50, emoji:"🌶️", imagen:"imagenes aliños/canela ch.png", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:64, nombre:"Comino suelto", unidad:"unidad", precio:0.30, emoji:"🌶️", imagen:"imagenes aliños/comino suelto.png", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:65, nombre:"Orégano chico", unidad:"unidad", precio:0.20, emoji:"🌿", imagen:"imagenes aliños/Oregano ch.png", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
   { id:66, nombre:"Clavo de olor chico", unidad:"unidad", precio:0.30, emoji:"🧂", imagen:"imagenes aliños/Clavo de Olor ch.png", categoria:"Aliños", etiqueta:"", stock:"disponible", destacado:true },
@@ -1064,9 +1063,12 @@ const productos = [
   { id:94, nombre:"Papel Higienol", unidad:"unidad", precio:2.20, emoji:"🧻", imagen:"imagenes papel/Papel Higenol.jpg", categoria:"Papel", etiqueta:"", stock:"disponible", destacado:true },
 
   /* ===== Nuevos productos agregados (lista de inventario en papel) ===== */
-  { id:197, nombre:"hot dog", unidad:"1kg", precio:0.90, emoji:"🥛", imagen:"imagenes abarrotes/Hot Dog.png", categoria:"Lácteos", etiqueta:"", stock:"disponible", destacado:true },
-  { id:198, nombre:"Arroz", unidad:"1kg", precio:4.00, emoji:"🥛", imagen:"imagenes abarrotes/Arroz.png", categoria:"Lácteos", etiqueta:"", stock:"disponible", destacado:true },
-  { id:199, nombre:"Azúcar", unidad:"1kg", precio:4.50, emoji:"🥛", imagen:"imagenes abarrotes/Azucar.png", categoria:"Lácteos", etiqueta:"", stock:"disponible", destacado:true },
+  { id:194, nombre:"Gillette",unidad:"cajita", precio:0.60, emoji:"🥛", imagen:"imagenes abarrotes/Gillette.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:195, nombre:"Lentejas", unidad:"bolsita", precio:2.00, emoji:"🥛", imagen:"imagenes abarrotes/Lentejas.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:196, nombre:"Gelatina suelta", unidad:"Bolsita", precio:1.00, emoji:"🥛", imagen:"imagenes abarrotes/Gelatina suelta.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:197, nombre:"hot dog", unidad:"Tira", precio:0.90, emoji:"🥛", imagen:"imagenes abarrotes/Hot Dog.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:198, nombre:"Arroz", unidad:"1kg", precio:4.00, emoji:"🥛", imagen:"imagenes abarrotes/Arroz.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
+  { id:199, nombre:"Azúcar", unidad:"1kg", precio:4.50, emoji:"🥛", imagen:"imagenes abarrotes/Azucar.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
   { id:200, nombre:"Leche Gloria grande", unidad:"tarro grande", precio:4.50, emoji:"🥛", imagen:"imagenes abarrotes/Leche Gloria Grande.jpg", categoria:"Lácteos", etiqueta:"", stock:"disponible", destacado:true },
   { id:201, nombre:"Leche Gloria chica", unidad:"tarro chico", precio:2.50, emoji:"🥛", imagen:"imagenes abarrotes/Leche Gloria Chica.jpg", categoria:"Lácteos", etiqueta:"", stock:"disponible", destacado:false },
   { id:202, nombre:"Atún Cardinal", unidad:"lata", precio:4.80, emoji:"🐟", imagen:"imagenes abarrotes/Atun Cardinal.jpg", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
@@ -1081,11 +1083,13 @@ const productos = [
   { id:211, nombre:"Sal", unidad:"bolsa", precio:1.00, emoji:"🧂", imagen:"imagenes abarrotes/Sal.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:212, nombre:"Huevo", unidad:"unidad", precio:0.50, emoji:"🥚", imagen:"imagenes abarrotes/Huevo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:true },
   { id:213, nombre:"Avena", unidad:"bolsa", precio:1.20, emoji:"🌾", imagen:"imagenes abarrotes/Avena.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
-  { id:214, nombre:"Fideos Alianza rosca", unidad:"paquete",precio:1.60, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Rosca.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
-  { id:215, nombre:"Fideos Alianza cabello de angel", unidad:"paquete", precio:1.60, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Largo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:214, nombre:"Fideos Alianza tornillo", unidad:"paquete",precio:1.60, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Tornillo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:215, nombre:"Fideos Alianza largo", unidad:"paquete", precio:1.50, emoji:"🍝", imagen:"imagenes abarrotes/Fideos Alianza Largo.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:215, nombre:"Fideos lavaggi", unidad:"paquete", precio:3.00, emoji:"🍝", imagen:"imagenes abarrotes/Fideos lavaggi.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:216, nombre:"Harina de maíz", unidad:"bolsa", precio:1.50, emoji:"🌽", imagen:"imagenes abarrotes/Harina de Maiz.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:217, nombre:"Mayonesa chica", unidad:"unidad", precio:0.40, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa Chica.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
-  { id:218, nombre:"Mayonesa grande", unidad:"frasco grande", precio:4.00, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa Grande.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:218, nombre:"Mayonesa grande", unidad:"unidad", precio:4.00, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa Grande.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:218, nombre:"Mayonesa mediana", unidad:"unidad", precio:2.20, emoji:"🥫", imagen:"imagenes abarrotes/Mayonesa mediana.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:219, nombre:"Tari", unidad:"sobre", precio:0.40, emoji:"🧃", imagen:"imagenes abarrotes/Tari.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:220, nombre:"Maizena", unidad:"caja", precio:2.80, emoji:"🌽", imagen:"imagenes abarrotes/Maizena.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:221, nombre:"Vinagre blanco", unidad:"botella", precio:1.30, emoji:"🧴", imagen:"imagenes abarrotes/Vinagre Blanco.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
@@ -1095,36 +1099,38 @@ const productos = [
   { id:225, nombre:"Esencia de vainilla grande", unidad:"frasco grande", precio:1.30, emoji:"🍦", imagen:"imagenes abarrotes/Esencia de Vainilla Grande.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:226, nombre:"Esencia de vainilla chica", unidad:"frasco chico", precio:0.80, emoji:"🍦", imagen:"imagenes abarrotes/Esencia de Vainilla Chica.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:227, nombre:"Fósforos", unidad:"caja", precio:0.30, emoji:"🔥", imagen:"imagenes abarrotes/Fosforos.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
-  { id:228, nombre:"Jugo en sobre", unidad:"sobre", precio:1.30, emoji:"🧃", imagen:"imagenes abarrotes/Jugo en Sobre.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:228, nombre:"Refresco en sobre", unidad:"sobre", precio:1.30, emoji:"🧃", imagen:"imagenes abarrotes/Jugo en Sobre.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:229, nombre:"Espiral antimosquitos", unidad:"unidad", precio:0.50, emoji:"🦟", imagen:"imagenes abarrotes/Espiral Antimosquitos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:230, nombre:"Pastillas antimosquitos", unidad:"paquete x4", precio:1.00, emoji:"🦟", imagen:"imagenes abarrotes/Pastillas Antimosquitos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:231, nombre:"Velas", unidad:"unidad", precio:0.30, emoji:"🕯️", imagen:"imagenes abarrotes/Velas.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
   { id:232, nombre:"Pilas AA", unidad:"unidad", precio:1.00, emoji:"🔋", imagen:"imagenes abarrotes/Pilas AA.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
 
+  { id:233, nombre:"Cordel de ropa plastificado", unidad:"unidad", precio:1.50, emoji:"🧺", imagen:"imagenes Aseo del hogar/cordel de ropa plastificado.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
+  { id:233, nombre:"Ganchos de ropa", unidad:"24 unidades", precio:3.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ganchos de ropa.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
+  { id:233, nombre:"Hilos de coser", unidad:"unidad", precio:0.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Hilos de coser.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
+  { id:233, nombre:"Limpia todo", unidad:"Botella grande", precio:3.50, emoji:"🧺", imagen:"imagenes Aseo del hogar/Limpia todo.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
   { id:233, nombre:"Ace Marsella grande", unidad:"bolsa grande", precio:4.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Marsella Grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:true },
   { id:234, nombre:"Ace Marsella chico", unidad:"bolsa chica", precio:2.50, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Marsella Chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:235, nombre:"Ace Trome", unidad:"sobre", precio:1.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Trome.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:236, nombre:"Ace Patito", unidad:"sobre", precio:1.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Patito.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:237, nombre:"Ace Opal grande", unidad:"bolsa grande", precio:5.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:238, nombre:"Ace Opal chico", unidad:"bolsa chica", precio:2.60, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:239, nombre:"Ace Dest", unidad:"sobre", precio:1.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Dest.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:237, nombre:"Ace Opal grande", unidad:"bolsa grande", precio:5.30, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:238, nombre:"Ace Opal chico", unidad:"bolsa chica", precio:2.70, emoji:"🧺", imagen:"imagenes Aseo del hogar/Ace Opal Chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:240, nombre:"Jabón Marsella", unidad:"barra", precio:3.00, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Marsella.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:241, nombre:"Jabón Patito", unidad:"barra", precio:2.20, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Patito.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:242, nombre:"Jabón Trome", unidad:"barra", precio:2.20, emoji:"🧼", imagen:"imagenes Aseo del hogar/Jabón Trome.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:243, nombre:"Lejía cojín", unidad:"unidad", precio:0.40, emoji:"🧴", imagen:"imagenes Aseo del hogar/Lejía cojin.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:244, nombre:"Lejía clorox grande", unidad:"botella grande", precio:2.50, emoji:"🥤", imagen:"imagenes Aseo del hogar/Lejía clorox grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:245, nombre:"Lejía clorox chica", unidad:"botella chica", precio:1.60, emoji:"🥤", imagen:"imagenes Aseo del hogar/Lejía clorox chica.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:246, nombre:"Clorox color grande", unidad:"botella grande", precio:3.50, emoji:"🥤", imagen:"imagenes Aseo del hogar/Clorox color grande.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:247, nombre:"Vanish", unidad:"unidad", precio:1.80, emoji:"🧺", imagen:"imagenes Aseo del hogar/Vanish.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:248, nombre:"Clorox color chico", unidad:"botella chica", precio:1.80, emoji:"🥤", imagen:"imagenes Aseo del hogar/Clorox color chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:247, nombre:"Vanish", unidad:"unidad", precio:2.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Vanish.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:248, nombre:"Clorox color chico", unidad:"botella", precio:3.50, emoji:"🥤", imagen:"imagenes Aseo del hogar/Clorox color chico.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:249, nombre:"Suavizante bolivar", unidad:"sobre", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Suavizante bolivar.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:250, nombre:"Suavitel ropa blanca", unidad:"sobre", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Suavitel ropa blanca.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:251, nombre:"Clorox color ropa", unidad:"unidad", precio:1.20, emoji:"🧺", imagen:"imagenes Aseo del hogar/Clorox color ropa.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:252, nombre:"Dest lavavajillas", unidad:"envase", precio:6.50, emoji:"🧴", imagen:"imagenes Aseo del hogar/Dest lavavajillas.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:251, nombre:"Clorox color ropa", unidad:"unidad", precio:2.00, emoji:"🧺", imagen:"imagenes Aseo del hogar/Clorox color ropa.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:252, nombre:"Dest lavavajillas", unidad:"envase", precio:6.00, emoji:"🧴", imagen:"imagenes Aseo del hogar/Dest lavavajillas.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:253, nombre:"Ayudin pomo", unidad:"pomo", precio:6.00, emoji:"🧴", imagen:"imagenes Aseo del hogar/Ayudin pomo.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:254, nombre:"Trapo amarillo", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Trapo amarillo.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:255, nombre:"Insecticida crock Brand ", unidad:"unidad", precio:9.00, emoji:"🪰", imagen:"imagenes Aseo del hogar/Insecticida Crock Brand.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:256, nombre:"Sapolio", unidad:"unidad", precio:0.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Sapolio.png", categoria:"Aseo del hogar", etiqueta:"", stock :"disponible", destacado:false },
+  { id:255, nombre:"Insecticida crock Brand ", unidad:"unidad", precio:9.50, emoji:"🪰", imagen:"imagenes Aseo del hogar/Insecticida Crock Brand.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:256, nombre:"Sapolio", unidad:"unidad", precio:9.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Sapolio.png", categoria:"Aseo del hogar", etiqueta:"", stock :"disponible", destacado:false },
   { id:257, nombre:"Tricks", unidad:"unidad", precio:0.60, emoji:"🧽", imagen:"imagenes Aseo del hogar/Tricks.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:258, nombre:"Esponja de fierro", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Esponja de fierro.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:259, nombre:"Esponja amarilla", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Esponja amarilla.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
@@ -1133,47 +1139,52 @@ const productos = [
   { id:261, nombre:"Shampoo Sedal", unidad:"sachet", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Shampoo Sedal.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:262, nombre:"Head & Shoulders sachet", unidad:"sachet", precio:1.00, emoji:"🧴", imagen:"imagenes Aseo personal/Head & Shoulders sachet.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:263, nombre:"Head & Shoulders pomo", unidad:"pomo", precio:5.00, emoji:"🧴", imagen:"imagenes Aseo personal/Head & Shoulders pomo.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
-  { id:264, nombre:"Hisopos", unidad:"unidad", precio:0.80, emoji:"🧴", imagen:"imagenes Aseo personal/Hisopos.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:264, nombre:"Hisopos", unidad:"unidad", precio:1.50, emoji:"🧴", imagen:"imagenes Aseo personal/Hisopos.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:265, nombre:"Desodorante Rexona", unidad:"unidad", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Desodorante Rexona.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:266, nombre:"Lady Speed Stick", unidad:"unidad", precio:1.30, emoji:"🧴", imagen:"imagenes Aseo personal/Lady Speed Stick.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:267, nombre:"Nutribela", unidad:"sachet", precio:1.50, emoji:"💊", imagen:"imagenes Aseo personal/Nutribela.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
-  { id:268, nombre:"Jabón Protex", unidad:"barra", precio:4.00, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Protex.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
-  { id:269, nombre:"Jabón Neko", unidad:"barra", precio:3.50, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Neko.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:268, nombre:"Jabón Protex", unidad:"barra", precio:4.20, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Protex.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:269, nombre:"Jabón Neko", unidad:"barra", precio:3.80, emoji:"🧼", imagen:"imagenes Aseo personal/Jabón Neko.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:270, nombre:"Pañal", unidad:"unidad", precio:1.30, emoji:"👶", imagen:"imagenes Aseo personal/Pañal.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:271, nombre:"Pasta dental Colgate grande", unidad:"tubo grande", precio:11.00, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental Colgate grande.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
   { id:272, nombre:"Pasta dental Colgate chica", unidad:"tubo chico", precio:6.50, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental Colgate chica.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:273, nombre:"Pasta dental dento", unidad:"tubo", precio:3.00, emoji:"🪥", imagen:"imagenes Aseo personal/Pasta dental dento.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:274, nombre:"Cepillo dental Colgate", unidad:"unidad", precio:2.80, emoji:"🪥", imagen:"imagenes Aseo personal/Cepillo dental Colgate.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:275, nombre:"Cepillo dental Kolynos", unidad:"unidad", precio:2.80, emoji:"🪥", imagen:"imagenes Aseo personal/Cepillo dental Kolynos.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
-  { id:276, nombre:"Toallas higiénicas Nosotras", unidad:"paquete", precio:5.00, emoji:"🌸", imagen:"imagenes Aseo personal/Toallas higiénicas Nosotras.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
+  { id:276, nombre:"Toallas higiénicas Nosotras", unidad:"paquete", precio:5.50, emoji:"🌸", imagen:"imagenes Aseo personal/Toallas higiénicas Nosotras.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:277, nombre:"Toallas higiénicas nocturnas", unidad:"paquete", precio:9.00, emoji:"🌸", imagen:"imagenes Aseo personal/Toallas higiénicas nocturnas.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:278, nombre:"Toallitas húmedas", unidad:"paquete", precio:2.50, emoji:"🧻", imagen:"imagenes Aseo personal/Toallitas húmedas.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:false },
   { id:279, nombre:"Oro", unidad:"botella 3 L", precio:7.50, emoji:"🥤", imagen:"imagenes gaseosas/Oro.jpg", categoria:"Bebidas", etiqueta:"", stock:"disponible", destacado:true },
-  { id:280, nombre:"Oreo", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Oreo.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
-  { id:281, nombre:"Tentación", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Tentacion.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:280, nombre:"Oreo", unidad:"unidad", precio:1.20, emoji:"🍪", imagen:"imagenes galletas/Oreo.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:281, nombre:"Tentación", unidad:"unidad", precio:1.20, emoji:"🍪", imagen:"imagenes galletas/Tentacion.jpg", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
   { id:282, nombre:"Piqueo", unidad:"unidad", precio:1.20, emoji:"🍟", imagen:"imagenes snacks/Piqueo.jpg", categoria:"Snacks", etiqueta:"", stock:"disponible", destacado:true },
-  { id:283, nombre:"Pilas AAA", unidad:"unidad", precio:1.00, emoji:"🔋", imagen:"imagenes abarrotes/Pilas AAA.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
-  { id:284, nombre:"Ritz queso", unidad:"unidad", precio:0.60, emoji:"🍪", imagen:"imagenes galletas/Ritz queso.png", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
-  { id:285, nombre:"Pomada para los zapatos", unidad:"unidad", precio:1.00, emoji:"🧽", imagen:"imagenes Aseo del hogar/Pomada para los zapatos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
+  { id:283, nombre:"Pilas AAA", unidad:"unidad", precio:1.10, emoji:"🔋", imagen:"imagenes abarrotes/Pilas AAA.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:284, nombre:"Ritz queso", unidad:"unidad", precio:1.30, emoji:"🍪", imagen:"imagenes galletas/Ritz queso.png", categoria:"Galletas", etiqueta:"", stock:"disponible", destacado:true },
+  { id:285, nombre:"Pomada para los zapatos", unidad:"unidad", precio:2.50, emoji:"🧽", imagen:"imagenes Aseo del hogar/Pomada para los zapatos.png", categoria:"Aseo del hogar", etiqueta:"", stock:"disponible", destacado:false },
   { id:286, nombre:"Shampoo Ammens", unidad:"sachet", precio:0.80, emoji:"🧴", imagen:"imagenes Aseo personal/Shampoo Ammens.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
+  { id:287, nombre:"Prestobarba colt II", unidad:"Unidad", precio:2.00, emoji:"🧴", imagen:"imagenes Aseo personal/Prestobarba colt II.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
+  { id:288, nombre:"Prestobarba verde", unidad:"Unidad", precio:3.00, emoji:"🧴", imagen:"imagenes Aseo personal/Prestobarba verde.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
+  { id:289, nombre:"Prestobarba Kovanda", unidad:"Unidad", precio:1.20, emoji:"🧴", imagen:"imagenes Aseo personal/Prestobarba Kovanda.png", categoria:"Aseo personal", etiqueta:"", stock:"disponible", destacado:true },
   /* ===== Botiquín (papel de precios) — pon tus fotos en imagenes botiquin/ ===== */
   
   /* ===== Bazar (papel de precios) ===== */
-  { id:320, nombre:"Goma", unidad:"unidad", precio:2.50, emoji:"🧴", imagen:"imagenes bazar/Goma.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:321, nombre:"Silicona chica", unidad:"unidad", precio:2.00, emoji:"🔧", imagen:"imagenes bazar/Silicona chica.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:322, nombre:"Cinta de embalaje", unidad:"unidad", precio:2.50, emoji:"📦", imagen:"imagenes bazar/Cinta de embalaje.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:323, nombre:"Foco", unidad:"unidad", precio:5.00, emoji:"💡", imagen:"imagenes bazar/Foco.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:324, nombre:"Lapiz mongol", unidad:"unidad", precio:5.00, emoji:"💡", imagen:"imagenes bazar/Lapiz mongol.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:325, nombre:"Lapicero", unidad:"unidad", precio:5.00, emoji:"💡", imagen:"imagenes bazar/Lapicero.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  { id:326, nombre:"Borrador", unidad:"unidad", precio:5.00, emoji:"💡", imagen:"imagenes bazar/Borrador.png", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false },
-  // { id:324, nombre:"Cinta pequeña", unidad:"unidad", precio:0.00, emoji:"📎", imagen:"", categoria:"Bazar", etiqueta:"", stock:"disponible", destacado:false }, // ⚠️ falta el precio
+  { id:320, nombre:"Cola escolar", unidad:"unidad", precio:2.50, emoji:"🧴", imagen:"imagenes utiles/Cola escolar.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:321, nombre:"Silicona chica", unidad:"unidad", precio:2.00, emoji:"🔧", imagen:"imagenes utiles/Silicona chica.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:322, nombre:"Cinta de embalaje", unidad:"unidad", precio:2.50, emoji:"📦", imagen:"imagenes utiles/Cinta de embalaje.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:323, nombre:"Foco", unidad:"unidad", precio:5.00, emoji:"💡", imagen:"imagenes Abarrotes/Foco.png", categoria:"Abarrotes", etiqueta:"", stock:"disponible", destacado:false },
+  { id:324, nombre:"Lapiz mongol", unidad:"unidad", precio:1.00, emoji:"💡", imagen:"imagenes utiles/Lapiz mongol.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:325, nombre:"Lapicero", unidad:"unidad", precio:1.00, emoji:"💡", imagen:"imagenes utiles/Lapicero.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:326, nombre:"Borrador", unidad:"unidad", precio:1.00, emoji:"💡", imagen:"imagenes utiles/Borrador.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  { id:327, nombre:"Cinta pequeña", unidad:"unidad", precio:0.60, emoji:"📎", imagen:"imagenes utiles/cinta pequeña.png", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false },
+  // { id:324, nombre:"Cinta pequeña", unidad:"unidad", precio:0.00, emoji:"📎", imagen:"", categoria:"Utiles", etiqueta:"", stock:"disponible", destacado:false }, // ⚠️ falta el precio
 
   /* ===== Frutas, verduras y tubérculos POR KILO (kilo:true) =====
-     ⚠️ PRECIOS DE EJEMPLO: cámbialos por tus precios reales por kg */
-  { id:327, nombre:"Pimiento", unidad:"unidad", emoji:"", imagen:"Pimiento.png", categoria:"vegetales", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:328, nombre:"Escabeche", unidad:"unidad", emoji:"", imagen:"Escabeche.png", categoria:"vegetales", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:329, nombre:"Cebolla china", unidad:"1kg", emoji:"", imagen:"Cebolla china.png", categoria:"vegetales", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:330, nombre:"Plátano", unidad:"3 unidades", precio: "1.00" ,emoji:"🍌", imagen:"Plátano.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false },
+     Sin precio: en la página se muestra "---" y se confirma al pesar.
+     Plátano y Plátano maduro sí llevan precio fijo. */
+  { id:327, nombre:"Pimiento", unidad:"1kg", emoji:"🫑", imagen:"Pimiento.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:328, nombre:"Escabeche", unidad:"1kg", emoji:"🌶️", imagen:"Escabeche.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:329, nombre:"Cebolla china", unidad:"1kg", emoji:"🧅", imagen:"Cebolla china.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:330, nombre:"Plátano", unidad:"3 unidades", precio:1.00, emoji:"🍌", imagen:"Plátano.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false },
   { id:331, nombre:"Mandarina", unidad:"1kg", emoji:"🍊", imagen:"Mandarina.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
   { id:332, nombre:"Manzana", unidad:"1kg", emoji:"🍎", imagen:"Manzana.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
   { id:333, nombre:"Limón", unidad:"1kg", emoji:"🍋", imagen:"Limón.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
@@ -1181,10 +1192,12 @@ const productos = [
   { id:335, nombre:"Cebolla", unidad:"1kg", emoji:"🧅", imagen:"Cebolla.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
   { id:336, nombre:"Zanahoria", unidad:"1kg", emoji:"🥕", imagen:"Zanahoria.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
   { id:337, nombre:"Papa chancay", unidad:"1kg", emoji:"🥔", imagen:"Papa chancay.png", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:338, nombre:"Papa blanca", unidad:"1kg", emoji:"🍠", imagen:"Papa blanca.png", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:339, nombre:"Cilantro", unidad:"1kg", emoji:"🥬", imagen:"Cilantro.png", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:340, nombre:"Palta", unidad:"unidad", emoji:"🥑", imagen:"Palta.png", categoria:"vegetales", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
-  { id:330, nombre:"Plátano maduro", unidad:"unidad", precio:1.20, emoji:"🍌", imagen:"Plátano maduro.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:338, nombre:"Papa blanca", unidad:"1kg", emoji:"🥔", imagen:"Papa blanca.png", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:339, nombre:"Cilantro", unidad:"1kg", emoji:"🥬", imagen:"Cilantro.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:340, nombre:"Palta", unidad:"1kg", emoji:"🥑", imagen:"Palta.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+  { id:341, nombre:"Plátano maduro", unidad:"unidad", precio:1.20, emoji:"🍌", imagen:"Plátano maduro.png", categoria:"Frutas", etiqueta:"", stock:"disponible", destacado:false },
+  { id:342, nombre:"Ajos", unidad:"1kg", emoji:"🥔", imagen:"Ajos.png", categoria:"Tubérculos", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
+   { id:327, nombre:"Ajies", unidad:"1kg", emoji:"🫑", imagen:"Ajies.png", categoria:"Verduras", etiqueta:"", stock:"disponible", destacado:false, kilo:true },
 ];
 
 /*
@@ -1216,7 +1229,7 @@ const coloresCategoria = {
   "Aseo del hogar":   "linear-gradient(160deg,#EBDFFC,#C6A2F7)",
   "Aseo personal":    "linear-gradient(160deg,#FCE0F0,#F4A9D2)",
   "Botiquín":         "linear-gradient(160deg,#FFE3E3,#F7A6A6)",
-  "Bazar":            "linear-gradient(160deg,#E4E9F2,#B3BFD6)",
+  "Utiles":           "linear-gradient(160deg,#E4E9F2,#B3BFD6)",
 };
 
 /* Color sólido de acento por categoría — usado en etiquetas, bordes e iconos */
@@ -1232,7 +1245,18 @@ const acentoCategoria = {
 let carrito = [];
 let categoriaActual = "Todos";
 
-function moneda(numero){ return "S/ " + numero.toFixed(2); }
+function moneda(numero){
+  const n = Number(numero);
+  if(numero === undefined || numero === null || numero === "" || isNaN(n)) return "---";
+  return "S/ " + n.toFixed(2);
+}
+
+/* Subtotal de una línea: los productos por kilo no suman hasta confirmar el peso */
+function subtotalItem(item){
+  return item.kilo ? 0 : (Number(item.precio) || 0) * item.cantidad;
+}
+/* Texto del precio: los productos por kilo muestran --- */
+function precioTexto(p){ return p.kilo ? "---" : moneda(p.precio); }
 
 function fondoCategoria(categoria){
   return coloresCategoria[categoria] || "linear-gradient(160deg,#EDEBF7,#D6D2EE)";
@@ -1287,7 +1311,7 @@ function tarjetaProducto(producto){
       ${etiquetaStock(producto.stock)}
 
       <div class="pie-producto">
-        <span class="precio">${moneda(producto.precio)}${producto.kilo ? '<small class="porkg"> /kg</small>' : ""}</span>
+        <span class="precio">${precioTexto(producto)}</span>
         <button class="agregar" data-id="${producto.id}" style="--acento:${acento}" aria-label="Agregar ${producto.nombre} al pedido" ${agotado ? "disabled" : ""}>+</button>
       </div>
     </article>
@@ -1304,7 +1328,7 @@ function mostrarDestacados(){
       <h3>${producto.nombre}</h3>
       <small>${producto.unidad}</small>
       <div class="fila-precio-mini">
-        <span class="precio-mini">${moneda(producto.precio)}${producto.kilo ? '<small class="porkg"> /kg</small>' : ""}</span>
+        <span class="precio-mini">${precioTexto(producto)}</span>
         <button class="agregar" data-id="${producto.id}" aria-label="Agregar ${producto.nombre} al pedido" style="width:32px;height:32px;font-size:17px;" ${producto.stock === "agotado" ? "disabled" : ""}>+</button>
       </div>
     </article>
@@ -1351,7 +1375,7 @@ function mostrarCarrito(){
   const bloqueYape = document.getElementById("bloqueYape");
 
   const cantidadTotal = carrito.reduce((s,i) => s + (i.kilo ? 1 : i.cantidad), 0);
-  const total = carrito.reduce((s,i) => s + i.precio * i.cantidad, 0);
+  const total = carrito.reduce((s,i) => s + subtotalItem(i), 0);
 
   contador.textContent = cantidadTotal;
   document.getElementById("totalPedido").textContent = moneda(total);
@@ -1379,7 +1403,7 @@ function mostrarCarrito(){
       ${medioProducto(item, "emoji-carrito")}
       <div class="info-carrito">
         <strong>${item.nombre}</strong>
-        <small>${moneda(item.precio)}${item.kilo ? " por kg" : " · " + item.unidad}</small>
+        <small>${item.kilo ? "Precio por confirmar · por kg" : moneda(item.precio) + " · " + item.unidad}</small>
         <div class="cantidad">
           <button data-cambiar="${item.id}" data-direccion="-1" aria-label="Quitar una unidad de ${item.nombre}">−</button>
           <b>${fmtCant(item)}</b>
@@ -1517,8 +1541,8 @@ document.getElementById("enviarWhatsApp").addEventListener("click", () => {
 
   const listaPedido = carrito.map(item => {
     let linea = item.kilo
-      ? `• ${item.nombre} — ${fmtCant(item)} (aprox.) — ${moneda(item.precio * item.cantidad)}`
-      : `• ${item.nombre} (${item.unidad}) x${item.cantidad} — ${moneda(item.precio * item.cantidad)}`;
+      ? `• ${item.nombre} — ${fmtCant(item)} (aprox.) — precio por confirmar`
+      : `• ${item.nombre} (${item.unidad}) x${item.cantidad} — ${moneda(subtotalItem(item))}`;
     const detalle = [item.frio === true ? "❄️ Helada" : item.frio === false ? "Al clima" : "", item.nota].filter(Boolean).join(" · ");
     if(detalle) linea += `\n   ↳ ${detalle}`;
     return linea;
@@ -1526,14 +1550,14 @@ document.getElementById("enviarWhatsApp").addEventListener("click", () => {
   const hayKilo = carrito.some(i => i.kilo);
   const comentario = document.getElementById("comentarioPedido").value.trim();
 
-  const total = carrito.reduce((s,i) => s + i.precio * i.cantidad, 0);
+  const total = carrito.reduce((s,i) => s + subtotalItem(i), 0);
 
   const mensaje = `🛍️ *Nuevo pedido — ${TIENDA.nombre}*
 
 📋 *Productos:*
 ${listaPedido}
 
-💰 *Total ${hayKilo ? "estimado" : "a pagar"}:* ${moneda(total)}${hayKilo ? "\n⚖️ _Frutas y verduras: el precio final se confirma al pesar._" : ""}
+💰 *${hayKilo ? "Total parcial (sin lo vendido por kilo)" : "Total a pagar"}:* ${moneda(total)}${hayKilo ? "\n⚖️ _Frutas, verduras y tubérculos por kilo: el precio se confirma al pesar._" : ""}
 
 💜 *Pago:* Yape (${TIENDA.yape.titular})
 🧾 *N° de operación:* ${numeroOperacion || "Aún no lo envié, se los paso enseguida"}
